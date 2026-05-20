@@ -38,8 +38,8 @@ nav{
 }
 
 .logo{
-  font-size:34px;
-  font-weight:900;
+  font-size:50px;
+  font-weight:1200;
   letter-spacing:3px;
   color:#ff2d55;
 }
@@ -53,7 +53,7 @@ nav ul{
 nav a{
   color:#111;
   text-decoration:none;
-  font-size:15px;
+  font-size:20px;
   font-weight:bold;
   transition:.3s;
 }
@@ -95,7 +95,7 @@ nav a:hover{
 
 .product-image img{
   width:100%;
-  max-width:520px;
+  max-width:700px;
   border-radius:30px;
   transition:.4s;
   background:white;
@@ -120,13 +120,13 @@ nav a:hover{
   color:white;
   padding:10px 18px;
   border-radius:999px;
-  font-size:13px;
+  font-size:20px;
   margin-bottom:20px;
   font-weight:bold;
 }
 
 h1{
-  font-size:72px;
+  font-size:80px;
   line-height:1;
   margin-bottom:20px;
   color:#111;
@@ -134,7 +134,7 @@ h1{
 
 .subtitle{
   color:#555;
-  font-size:18px;
+  font-size:20px;
   line-height:1.7;
   max-width:550px;
   margin-bottom:30px;
@@ -148,13 +148,13 @@ h1{
 }
 
 .new-price{
-  font-size:52px;
+  font-size:60px;
   font-weight:900;
   color:#ff2d55;
 }
 
 .old-price{
-  font-size:24px;
+  font-size:30px;
   color:#888;
   text-decoration:line-through;
 }
@@ -183,7 +183,7 @@ h1{
   border:none;
   background:#f2f2f2;
   color:#111;
-  font-size:18px;
+  font-size:30px;
   font-weight:bold;
   cursor:pointer;
   transition:.3s;
@@ -221,7 +221,7 @@ h1{
   padding:18px 38px;
   border:none;
   border-radius:16px;
-  font-size:17px;
+  font-size:30px;
   font-weight:bold;
   cursor:pointer;
   transition:.3s;
@@ -279,7 +279,7 @@ h1{
 
 .feature p{
   color:#666;
-  font-size:14px;
+  font-size:30px;
   line-height:1.5;
 }
 
@@ -292,7 +292,7 @@ h1{
 
 .gallery-title{
   text-align:center;
-  font-size:50px;
+  font-size:60px;
   margin-bottom:50px;
   color:#111;
 }
@@ -331,7 +331,7 @@ footer{
 @media(max-width:950px){
 
   h1{
-    font-size:52px;
+    font-size:60px;
   }
 
   .container{
@@ -384,7 +384,7 @@ footer{
 
     <div class="tag">YOUR STYLE STARTS NOW</div>
 
-    <h1>DWOCK STREETWEAR</h1>
+    <h1>DWOCK  STREETWEAR</h1>
 
     <p class="subtitle">
       Premium streetwear made for riders and everyday fits.
