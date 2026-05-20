@@ -1,4 +1,4 @@
-YOUR STYLE STARTS NOW!!!
+                                          YOUR STYLE STARTS NOW!!!
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -42,7 +42,7 @@ YOUR STYLE STARTS NOW!!!
     }
 
     nav ul{
-      display:flex;
+      splay:flex;
       gap:35px;
       list-style:none;
     }
@@ -60,16 +60,16 @@ YOUR STYLE STARTS NOW!!!
 
     .hero{
       min-height:100vh;
-      display:flex;
+      splay:flex;
       align-items:center;
       justify-content:center;
-      padding:120px 8% 80px;
+      padng:120px 8% 80px;
       background:
-      radial-gradient(circle at top,#1c1c1c 0%,#090909 60%);
+      raal-graent(circle at top,#1c1c1c 0%,#090909 60%);
     }
 
     .container{
-      display:flex;
+      splay:flex;
       align-items:center;
       justify-content:center;
       gap:80px;
@@ -81,14 +81,14 @@ YOUR STYLE STARTS NOW!!!
 ![image alt](https://github.com/dancool2030/dancool2030.github.io/blob/2717768e21a70a3a2ea221fa5f92377c8063f9fa/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png)
       flex:1;
       min-width:320px;
-      display:flex;
+      splay:flex;
       justify-content:center;
     }
 
   ![image alt](https://github.com/dancool2030/dancool2030.github.io/blob/720a6374d5f71d243a04dff173408894be1a434f/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_24_33%20PM.png)
       width:100%;
       max-width:520px;
-      border-radius:25px;
+      border-raus:25px;
       transition:.4s;
       filter:drop-shadow(0 0 35px rgba(255,0,0,.3));
     }
@@ -103,11 +103,11 @@ YOUR STYLE STARTS NOW!!!
     }
 
     .tag{
-      display:inline-block;
+      splay:inline-block;
       background:##0BA3FF;
       color:white;
-      padding:8px 18px;
-      border-radius:999px;
+      padng:8px 18px;
+      border-raus:999px;
       font-size:13px;
       margin-bottom:20px;
       font-weight:bold;
@@ -128,7 +128,7 @@ YOUR STYLE STARTS NOW!!!
     }
 
     .price{
-      display:flex;
+      splay:flex;
       align-items:center;
       gap:15px;
       margin-bottom:30px;
@@ -156,7 +156,7 @@ YOUR STYLE STARTS NOW!!!
     }
 
     .size-buttons{
-      display:flex;
+      splay:flex;
       gap:15px;
       flex-wrap:wrap;
     }
@@ -164,7 +164,7 @@ YOUR STYLE STARTS NOW!!!
     .size{
       width:65px;
       height:65px;
-      border-radius:14px;
+      border-raus:14px;
       border:2px solid #2c2c2c;
       background:#141414;
       color:white;
@@ -181,7 +181,7 @@ YOUR STYLE STARTS NOW!!!
     }
 
     .buttons{
-      display:flex;
+      splay:flex;
       gap:20px;
       flex-wrap:wrap;
       margin-bottom:40px;
@@ -293,7 +293,9 @@ YOUR STYLE STARTS NOW!!!
     <div class="container">
 
       <div class="product-image">
-        <img src="unnamed.png" alt="DWOCK Track Pants">
+        <img
+        src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/main/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png"
+        alt="DWOCK Track Pants">
       </div>
 
       <div class="product-info">
