@@ -6,249 +6,244 @@
 
 <title>DWOCK Official Store</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
+
 <style>
 
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family:'Modak', cursive;
 }
 
 body{
   background:white;
-  color:#111;
   overflow-x:hidden;
+  color:#111;
+}
+
+/* FLOATING BACKGROUND GLOW */
+body::before{
+  content:"";
+  position:fixed;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#ff2d55,transparent 60%);
+  top:-200px;
+  left:-200px;
+  filter:blur(80px);
+  opacity:.25;
+  animation:floatGlow 6s infinite alternate;
+  z-index:-1;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#0BA3FF,transparent 60%);
+  bottom:-200px;
+  right:-200px;
+  filter:blur(90px);
+  opacity:.25;
+  animation:floatGlow2 7s infinite alternate;
+  z-index:-1;
+}
+
+@keyframes floatGlow{
+  from{transform:translate(0,0);}
+  to{transform:translate(80px,60px);}
+}
+
+@keyframes floatGlow2{
+  from{transform:translate(0,0);}
+  to{transform:translate(-80px,-60px);}
 }
 
 /* NAVBAR */
-
 nav{
-  width:100%;
-  padding:25px 8%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
   position:fixed;
   top:0;
   left:0;
+  width:100%;
+  padding:30px 10%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(255,255,255,.7);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #eee;
   z-index:1000;
-  background:white;
-  border-bottom:2px solid #ececec;
+  animation:dropDown .8s ease;
+}
+
+@keyframes dropDown{
+  from{transform:translateY(-100px);opacity:0;}
+  to{transform:translateY(0);opacity:1;}
 }
 
 .logo{
-  font-size:50px;
-  font-weight:1200;
-  letter-spacing:3px;
+  font-size:85px;
   color:#ff2d55;
-}
-
-nav ul{
-  display:flex;
-  gap:35px;
-  list-style:none;
+  letter-spacing:4px;
 }
 
 nav a{
-  color:#111;
   text-decoration:none;
-  font-size:20px;
-  font-weight:bold;
+  color:#111;
+  font-size:30px;
+  margin-left:40px;
   transition:.3s;
 }
 
 nav a:hover{
   color:#0BA3FF;
+  transform:scale(1.1);
 }
 
 /* HERO */
-
 .hero{
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:140px 8% 80px;
-  background:
-  linear-gradient(135deg,#ffffff,#f8f8f8);
+  padding:180px 10% 100px;
 }
 
+/* GRID */
 .container{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:80px;
+  gap:120px;
   flex-wrap:wrap;
-  width:100%;
-  max-width:1400px;
+  max-width:1600px;
 }
 
-/* IMAGE */
-
-.product-image{
-  flex:1;
-  min-width:320px;
-  display:flex;
-  justify-content:center;
-}
-
+/* IMAGE 3D HOVER */
 .product-image img{
   width:100%;
-  max-width:700px;
-  border-radius:30px;
-  transition:.4s;
+  max-width:900px;
+  border-radius:40px;
+  padding:25px;
   background:white;
-  padding:20px;
-  box-shadow:0 10px 40px rgba(0,0,0,.12);
+  box-shadow:0 20px 60px rgba(0,0,0,.15);
+  transition:.5s;
+  transform:perspective(1000px) rotateY(0deg);
+  animation:fadeIn 1s ease;
 }
 
 .product-image img:hover{
-  transform:scale(1.03);
+  transform:perspective(1000px) rotateY(-10deg) scale(1.05);
 }
 
-/* PRODUCT INFO */
+/* TEXT ANIMATION */
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
 
 .product-info{
-  flex:1;
-  min-width:320px;
+  animation:fadeIn 1.2s ease;
 }
 
 .tag{
-  display:inline-block;
   background:#0BA3FF;
   color:white;
-  padding:10px 18px;
+  padding:15px 25px;
   border-radius:999px;
-  font-size:20px;
+  font-size:32px;
+  display:inline-block;
   margin-bottom:20px;
-  font-weight:bold;
 }
 
 h1{
-  font-size:80px;
+  font-size:120px;
   line-height:1;
-  margin-bottom:20px;
-  color:#111;
 }
 
 .subtitle{
+  font-size:30px;
   color:#555;
-  font-size:20px;
-  line-height:1.7;
-  max-width:550px;
-  margin-bottom:30px;
+  margin:20px 0 40px;
+  max-width:600px;
 }
 
+/* PRICE */
 .price{
   display:flex;
+  gap:25px;
   align-items:center;
-  gap:15px;
-  margin-bottom:30px;
+  margin-bottom:40px;
 }
 
 .new-price{
-  font-size:60px;
-  font-weight:900;
+  font-size:90px;
   color:#ff2d55;
 }
 
 .old-price{
-  font-size:30px;
-  color:#888;
+  font-size:45px;
+  color:#aaa;
   text-decoration:line-through;
 }
 
-/* SIZES */
-
-.sizes{
-  margin-bottom:35px;
-}
-
-.sizes h3{
-  margin-bottom:15px;
-  color:#222;
-}
-
+/* SIZE */
 .size-buttons{
   display:flex;
-  gap:15px;
-  flex-wrap:wrap;
+  gap:20px;
+  margin:20px 0 40px;
 }
 
 .size{
-  width:65px;
-  height:65px;
-  border-radius:16px;
+  width:90px;
+  height:90px;
+  font-size:40px;
   border:none;
-  background:#f2f2f2;
-  color:#111;
-  font-size:30px;
-  font-weight:bold;
+  border-radius:20px;
   cursor:pointer;
   transition:.3s;
 }
 
-.size:nth-child(1){
-  background:#0BA3FF;
-  color:white;
-}
-
-.size:nth-child(2){
-  background:#ff2d55;
-  color:white;
-}
-
-.size:nth-child(3){
-  background:#19c37d;
-  color:white;
-}
-
 .size:hover{
-  transform:translateY(-5px);
+  transform:translateY(-8px) scale(1.05);
 }
 
 /* BUTTONS */
-
 .buttons{
   display:flex;
-  gap:20px;
-  flex-wrap:wrap;
+  gap:25px;
   margin-bottom:40px;
 }
 
 .btn{
-  padding:18px 38px;
+  padding:25px 55px;
+  font-size:40px;
   border:none;
-  border-radius:16px;
-  font-size:30px;
-  font-weight:bold;
+  border-radius:20px;
   cursor:pointer;
   transition:.3s;
+}
+
+.btn:hover{
+  transform:translateY(-6px);
 }
 
 .buy{
   background:#ff2d55;
   color:white;
-  box-shadow:0 10px 25px rgba(255,45,85,.25);
-}
-
-.buy:hover{
-  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(255,45,85,.3);
 }
 
 .cart{
   background:#19c37d;
   color:white;
-  box-shadow:0 10px 25px rgba(25,195,125,.25);
-}
-
-.cart:hover{
-  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(25,195,125,.3);
 }
 
 /* FEATURES */
-
 .features{
   display:flex;
   gap:20px;
@@ -257,91 +252,75 @@ h1{
 
 .feature{
   background:white;
-  border:2px solid #efefef;
-  padding:18px 24px;
-  border-radius:18px;
-  flex:1;
-  min-width:180px;
-  box-shadow:0 5px 20px rgba(0,0,0,.06);
+  padding:25px;
+  border-radius:20px;
+  border:1px solid #eee;
+  min-width:220px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  transition:.3s;
 }
 
-.feature:nth-child(1) h4{
-  color:#0BA3FF;
+.feature:hover{
+  transform:translateY(-10px);
 }
 
-.feature:nth-child(2) h4{
-  color:#ff2d55;
-}
-
-.feature:nth-child(3) h4{
-  color:#19c37d;
+.feature h4{
+  font-size:38px;
 }
 
 .feature p{
+  font-size:26px;
   color:#666;
-  font-size:30px;
-  line-height:1.5;
 }
 
 /* GALLERY */
-
 .gallery{
-  padding:80px 8%;
-  background:white;
+  padding:120px 10%;
 }
 
 .gallery-title{
   text-align:center;
-  font-size:60px;
-  margin-bottom:50px;
-  color:#111;
+  font-size:90px;
+  margin-bottom:60px;
+  animation:fadeIn 1s ease;
 }
 
 .gallery-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:40px;
 }
 
 .gallery-grid img{
   width:100%;
   border-radius:25px;
-  background:white;
   padding:15px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  box-shadow:0 20px 50px rgba(0,0,0,.12);
   transition:.4s;
 }
 
 .gallery-grid img:hover{
-  transform:translateY(-8px);
+  transform:scale(1.05) translateY(-10px);
 }
 
 /* FOOTER */
-
 footer{
   text-align:center;
-  padding:35px;
-  border-top:2px solid #ececec;
-  color:#666;
-  background:white;
+  padding:60px;
+  font-size:30px;
+  border-top:1px solid #eee;
 }
 
-/* MOBILE */
+/* SCROLL ANIMATION */
+.hidden{
+  opacity:0;
+  transform:translateY(50px);
+  transition:all .8s ease;
+}
 
-@media(max-width:950px){
-
-  h1{
-    font-size:60px;
-  }
-
-  .container{
-    gap:50px;
-  }
-
-  nav ul{
-    display:none;
-  }
-
+.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 </style>
@@ -349,46 +328,31 @@ footer{
 
 <body>
 
-<!-- NAV -->
-
 <nav>
-
-<div class="logo">DWOCK</div>
-
-<ul>
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Shop</a></li>
-  <li><a href="#">Drops</a></li>
-  <li><a href="#">Contact</a></li>
-</ul>
-
+  <div class="logo">DWOCK</div>
+  <div>
+    <a href="#">Home</a>
+    <a href="#">Shop</a>
+    <a href="#">Drops</a>
+    <a href="#">Contact</a>
+  </div>
 </nav>
 
-<!-- HERO -->
-
 <section class="hero">
-
 <div class="container">
 
-  <!-- MAIN PRODUCT IMAGE -->
-
-  <div class="product-image">
-
-    <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png" alt="DWOCK Clothing">
-
+  <div class="product-image hidden">
+    <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png">
   </div>
 
-  <!-- INFO -->
-
-  <div class="product-info">
+  <div class="product-info hidden">
 
     <div class="tag">YOUR STYLE STARTS NOW</div>
 
-    <h1>DWOCK  STREETWEAR</h1>
+    <h1>DWOCK STREETWEAR</h1>
 
     <p class="subtitle">
       Premium streetwear made for riders and everyday fits.
-      Bright colors, clean style, lightweight comfort, and bold designs.
     </p>
 
     <div class="price">
@@ -396,86 +360,69 @@ footer{
       <div class="old-price">$65</div>
     </div>
 
-    <!-- SIZES -->
-
-    <div class="sizes">
-
-      <h3>Select Size</h3>
-
-      <div class="size-buttons">
-        <button class="size">S</button>
-        <button class="size">M</button>
-        <button class="size">L</button>
-      </div>
-
+    <div class="size-buttons">
+      <button class="size">S</button>
+      <button class="size">M</button>
+      <button class="size">L</button>
     </div>
-
-    <!-- BUTTONS -->
 
     <div class="buttons">
-
-      <button class="btn buy">
-        BUY NOW
-      </button>
-
-      <button class="btn cart">
-        ADD TO CART
-      </button>
-
+      <button class="btn buy">BUY NOW</button>
+      <button class="btn cart">ADD TO CART</button>
     </div>
 
-    <!-- FEATURES -->
-
     <div class="features">
-
       <div class="feature">
-        <h4>Fast Shipping</h4>
-        <p>Ships within 24 hours.</p>
+        <h4>Fast</h4>
+        <p>24h shipping</p>
       </div>
-
       <div class="feature">
-        <h4>Trending Style</h4>
-        <p>Bright streetwear inspired colors.</p>
+        <h4>Style</h4>
+        <p>Clean streetwear</p>
       </div>
-
       <div class="feature">
-        <h4>Premium Quality</h4>
-        <p>Comfortable and lightweight material.</p>
+        <h4>Quality</h4>
+        <p>Premium fabric</p>
       </div>
-
     </div>
 
   </div>
 
 </div>
-
 </section>
 
-<!-- GALLERY -->
-
 <section class="gallery">
+<h2 class="gallery-title hidden">LATEST DROPS</h2>
 
-<h2 class="gallery-title">LATEST DROPS</h2>
-
-<div class="gallery-grid">
-
+<div class="gallery-grid hidden">
 <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png">
-
 <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png">
-
 <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png">
-
 <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png">
-
 </div>
 
 </section>
 
-<!-- FOOTER -->
-
 <footer>
-© 2026 DWOCK Official Store. All Rights Reserved.
+© 2026 DWOCK Official Store
 </footer>
 
+<script>
+// SCROLL REVEAL
+const items = document.querySelectorAll('.hidden');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+items.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
 </body>
 </html>
