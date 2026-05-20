@@ -78,7 +78,7 @@ YOUR STYLE STARTS NOW!!!
       max-width:1400px;
     }
 
-    .product-image{
+    .product-image ![image alt](https://github.com/dancool2030/dancool2030.github.io/blob/2717768e21a70a3a2ea221fa5f92377c8063f9fa/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png)
       flex:1;
       min-width:320px;
       display:flex;
