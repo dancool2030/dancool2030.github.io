@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+YOUR STYLE STARTS NOW!!!
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -38,7 +38,7 @@
       font-size:32px;
       font-weight:900;
       letter-spacing:3px;
-      color:#ff1d1d;
+      color:##0BA3FF;
     }
 
     nav ul{
@@ -55,7 +55,7 @@
     }
 
     nav a:hover{
-      color:#ff1d1d;
+      color:##0BA3FF;
     }
 
     .hero{
@@ -104,7 +104,7 @@
 
     .tag{
       display:inline-block;
-      background:#ff1d1d;
+      background:##0BA3FF;
       color:white;
       padding:8px 18px;
       border-radius:999px;
