@@ -47,7 +47,7 @@ nav a{
   color:#111;
 }
 
-/* CART */
+/* CART ICON */
 .cart-icon{
   position:relative;
   cursor:pointer;
@@ -69,7 +69,7 @@ nav a{
   justify-content:center;
 }
 
-/* BANNER (LOWERED) */
+/* BANNER (FIXED LOWER) */
 .top-banner{
   position:fixed;
   top:110px;
@@ -122,6 +122,7 @@ nav a{
   border-radius:12px;
   cursor:pointer;
   font-size:18px;
+  margin-top:10px;
 }
 
 .buy{background:#ff2d55;color:white;}
@@ -204,7 +205,23 @@ nav a{
   max-height:90%;
 }
 
-/* CART */
+/* BACKDROP */
+.cart-backdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:2500;
+}
+
+.cart-backdrop.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* CART PANEL */
 .cart-panel{
   position:fixed;
   top:0;
@@ -244,6 +261,21 @@ nav a{
   cursor:pointer;
 }
 
+/* CLOSE BUTTON */
+.close-cart{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#ff2d55;
+  color:white;
+  border:none;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:18px;
+}
+
 </style>
 </head>
 
@@ -264,7 +296,7 @@ nav a{
 </div>
 </nav>
 
-<!-- BANNER (FIXED LOWER) -->
+<!-- BANNER -->
 <div class="top-banner" id="banner">
 YOUR STYLE STARTS NOW!!!
 </div>
@@ -280,7 +312,6 @@ onclick="openImg(this.src)">
 <h1>DWOCK STREETWEAR</h1>
 <p>$30</p>
 
-<!-- SIZE BUTTONS -->
 <div class="sizes">
 <button class="size-btn" onclick="setSize(this,'S')">S</button>
 <button class="size-btn" onclick="setSize(this,'M')">M</button>
@@ -294,9 +325,8 @@ onclick="openImg(this.src)">
 </div>
 </section>
 
-<!-- GALLERY (ALL ORIGINAL IMAGES KEPT) -->
+<!-- GALLERY (ALL IMAGES KEPT) -->
 <section class="gallery">
-
 <h2 class="gallery-title">LATEST DROPS</h2>
 
 <div class="gallery-grid">
@@ -307,7 +337,7 @@ onclick="openImg(this.src)">
 
 <div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 3',25)">Add</button></div>
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 4',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 4',25)">Add</button></div>
 
 <div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 5',25)">Add</button></div>
 
@@ -333,12 +363,19 @@ onclick="openImg(this.src)">
 <img id="bigImg">
 </div>
 
+<!-- BACKDROP -->
+<div class="cart-backdrop" id="cartBackdrop" onclick="toggleCart()"></div>
+
 <!-- CART -->
 <div class="cart-panel" id="cartPanel">
+
+<button class="close-cart" onclick="toggleCart()">✖</button>
+
 <h2>Your Cart</h2>
 <div id="cartItems"></div>
 <div class="total" id="total">Total: $0</div>
 <button class="checkout" onclick="checkout()">Checkout</button>
+
 </div>
 
 <script>
@@ -382,6 +419,7 @@ localStorage.setItem("cart",JSON.stringify(cart));
 
 function toggleCart(){
 document.getElementById("cartPanel").classList.toggle("active");
+document.getElementById("cartBackdrop").classList.toggle("active");
 }
 
 function openImg(src){
