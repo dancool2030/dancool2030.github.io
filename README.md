@@ -1,4 +1,3 @@
-                                          YOUR STYLE STARTS NOW!!!
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -23,7 +22,8 @@ body{
   color:#111;
 }
 
-/* FLOATING BACKGROUND GLOW */
+/* GLOW BACKGROUND */
+
 body::before{
   content:"";
   position:fixed;
@@ -62,7 +62,8 @@ body::after{
   to{transform:translate(-80px,-60px);}
 }
 
-/* NAVBAR */
+/* NAV */
+
 nav{
   position:fixed;
   top:0;
@@ -72,16 +73,10 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(255,255,255,.7);
+  background:rgba(255,255,255,.75);
   backdrop-filter:blur(15px);
   border-bottom:1px solid #eee;
   z-index:1000;
-  animation:dropDown .8s ease;
-}
-
-@keyframes dropDown{
-  from{transform:translateY(-100px);opacity:0;}
-  to{transform:translateY(0);opacity:1;}
 }
 
 .logo{
@@ -104,6 +99,7 @@ nav a:hover{
 }
 
 /* HERO */
+
 .hero{
   min-height:100vh;
   display:flex;
@@ -112,7 +108,6 @@ nav a:hover{
   padding:180px 10% 100px;
 }
 
-/* GRID */
 .container{
   display:flex;
   align-items:center;
@@ -122,31 +117,18 @@ nav a:hover{
   max-width:1600px;
 }
 
-/* IMAGE 3D HOVER */
 .product-image img{
   width:100%;
-  max-width:900px;
+  max-width:850px;
   border-radius:40px;
-  padding:25px;
+  padding:20px;
   background:white;
   box-shadow:0 20px 60px rgba(0,0,0,.15);
   transition:.5s;
-  transform:perspective(1000px) rotateY(0deg);
-  animation:fadeIn 1s ease;
 }
 
 .product-image img:hover{
-  transform:perspective(1000px) rotateY(-10deg) scale(1.05);
-}
-
-/* TEXT ANIMATION */
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(40px);}
-  to{opacity:1;transform:translateY(0);}
-}
-
-.product-info{
-  animation:fadeIn 1.2s ease;
+  transform:scale(1.04) rotate(-1deg);
 }
 
 .tag{
@@ -165,17 +147,18 @@ h1{
 }
 
 .subtitle{
-  font-size:30px;
+  font-size:32px;
   color:#555;
-  margin:20px 0 40px;
-  max-width:600px;
+  margin:25px 0 40px;
+  max-width:650px;
 }
 
 /* PRICE */
+
 .price{
   display:flex;
-  gap:25px;
   align-items:center;
+  gap:25px;
   margin-bottom:40px;
 }
 
@@ -190,37 +173,59 @@ h1{
   text-decoration:line-through;
 }
 
-/* SIZE */
+/* SIZES */
+
+.size-title{
+  font-size:35px;
+  margin-bottom:20px;
+}
+
 .size-buttons{
   display:flex;
   gap:20px;
-  margin:20px 0 40px;
+  margin-bottom:40px;
 }
 
 .size{
-  width:90px;
-  height:90px;
-  font-size:40px;
+  width:95px;
+  height:95px;
   border:none;
   border-radius:20px;
+  font-size:40px;
   cursor:pointer;
   transition:.3s;
 }
 
+.size:nth-child(1){
+  background:#0BA3FF;
+  color:white;
+}
+
+.size:nth-child(2){
+  background:#ff2d55;
+  color:white;
+}
+
+.size:nth-child(3){
+  background:#19c37d;
+  color:white;
+}
+
 .size:hover{
-  transform:translateY(-8px) scale(1.05);
+  transform:translateY(-8px);
 }
 
 /* BUTTONS */
+
 .buttons{
   display:flex;
   gap:25px;
-  margin-bottom:40px;
+  margin-bottom:45px;
 }
 
 .btn{
   padding:25px 55px;
-  font-size:40px;
+  font-size:38px;
   border:none;
   border-radius:20px;
   cursor:pointer;
@@ -244,6 +249,7 @@ h1{
 }
 
 /* FEATURES */
+
 .features{
   display:flex;
   gap:20px;
@@ -265,15 +271,16 @@ h1{
 }
 
 .feature h4{
-  font-size:38px;
+  font-size:35px;
 }
 
 .feature p{
-  font-size:26px;
+  font-size:24px;
   color:#666;
 }
 
 /* GALLERY */
+
 .gallery{
   padding:120px 10%;
 }
@@ -281,13 +288,12 @@ h1{
 .gallery-title{
   text-align:center;
   font-size:90px;
-  margin-bottom:60px;
-  animation:fadeIn 1s ease;
+  margin-bottom:70px;
 }
 
 .gallery-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap:40px;
 }
 
@@ -295,32 +301,68 @@ h1{
   width:100%;
   border-radius:25px;
   padding:15px;
+  background:white;
   box-shadow:0 20px 50px rgba(0,0,0,.12);
   transition:.4s;
+  cursor:pointer;
 }
 
 .gallery-grid img:hover{
   transform:scale(1.05) translateY(-10px);
 }
 
+/* LIGHTBOX */
+
+.lightbox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.92);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:5000;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:25px;
+}
+
 /* FOOTER */
+
 footer{
   text-align:center;
   padding:60px;
-  font-size:30px;
+  font-size:28px;
   border-top:1px solid #eee;
+  margin-top:80px;
 }
 
-/* SCROLL ANIMATION */
-.hidden{
-  opacity:0;
-  transform:translateY(50px);
-  transition:all .8s ease;
-}
+/* MOBILE */
 
-.show{
-  opacity:1;
-  transform:translateY(0);
+@media(max-width:950px){
+
+  h1{
+    font-size:75px;
+  }
+
+  .logo{
+    font-size:60px;
+  }
+
+  nav a{
+    font-size:22px;
+    margin-left:20px;
+  }
+
+  .btn{
+    font-size:28px;
+  }
+
 }
 
 </style>
@@ -328,24 +370,32 @@ footer{
 
 <body>
 
+<!-- NAV -->
+
 <nav>
-  <div class="logo">DWOCK</div>
-  <div>
-    <a href="#">Home</a>
-    <a href="#">Shop</a>
-    <a href="#">Drops</a>
-    <a href="#">Contact</a>
-  </div>
+
+<div class="logo">DWOCK</div>
+
+<div>
+  <a href="#">Home</a>
+  <a href="#">Shop</a>
+  <a href="#">Drops</a>
+  <a href="#">Contact</a>
+</div>
+
 </nav>
 
+<!-- HERO -->
+
 <section class="hero">
+
 <div class="container">
 
-  <div class="product-image hidden">
+  <div class="product-image">
     <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png">
   </div>
 
-  <div class="product-info hidden">
+  <div class="product-info">
 
     <div class="tag">YOUR STYLE STARTS NOW</div>
 
@@ -353,12 +403,15 @@ footer{
 
     <p class="subtitle">
       Premium streetwear made for riders and everyday fits.
+      Clean colors, bold graphics, and comfortable material made for every ride.
     </p>
 
     <div class="price">
       <div class="new-price">$30</div>
       <div class="old-price">$65</div>
     </div>
+
+    <div class="size-title">SELECT SIZE</div>
 
     <div class="size-buttons">
       <button class="size">S</button>
@@ -372,57 +425,126 @@ footer{
     </div>
 
     <div class="features">
+
       <div class="feature">
-        <h4>Fast</h4>
-        <p>24h shipping</p>
+        <h4>FAST SHIPPING</h4>
+        <p>Ships in 24 hours.</p>
       </div>
+
       <div class="feature">
-        <h4>Style</h4>
-        <p>Clean streetwear</p>
+        <h4>PREMIUM</h4>
+        <p>Heavyweight comfort fit.</p>
       </div>
+
       <div class="feature">
-        <h4>Quality</h4>
-        <p>Premium fabric</p>
+        <h4>LIMITED</h4>
+        <p>Exclusive streetwear drops.</p>
       </div>
+
     </div>
 
   </div>
 
 </div>
+
 </section>
 
-<section class="gallery">
-<h2 class="gallery-title hidden">LATEST DROPS</h2>
+<!-- GALLERY -->
 
-<div class="gallery-grid hidden">
+<section class="gallery">
+
+<h2 class="gallery-title">LATEST DROPS</h2>
+
+<div class="gallery-grid">
+
 <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png">
+
 <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png">
+
 <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png">
+
 <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png">
+
+<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png">
+
+<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2449.png">
+
+<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png">
+
+<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png">
+
+<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png">
+
 </div>
 
 </section>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img">
+</div>
+
+<!-- FOOTER -->
 
 <footer>
 © 2026 DWOCK Official Store
 </footer>
 
 <script>
-// SCROLL REVEAL
-const items = document.querySelectorAll('.hidden');
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-    }
+/* LIGHTBOX */
+
+const images = document.querySelectorAll('.gallery-grid img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+images.forEach(img => {
+
+  img.addEventListener('click', () => {
+
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+
   });
+
 });
 
-items.forEach(el => observer.observe(el));
+lightbox.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+
+/* SIZE SELECTOR */
+
+const sizes = document.querySelectorAll('.size');
+
+sizes.forEach(size => {
+
+  size.addEventListener('click', () => {
+
+    sizes.forEach(btn => btn.style.opacity = ".5");
+
+    size.style.opacity = "1";
+
+  });
+
+});
+
+/* ADD TO CART */
+
+const cartBtn = document.querySelector('.cart');
+
+cartBtn.addEventListener('click', () => {
+
+  cartBtn.innerHTML = "ADDED ✓";
+
+  setTimeout(() => {
+    cartBtn.innerHTML = "ADD TO CART";
+  },2000);
+
+});
+
 </script>
 
-</body>
-</html>
 </body>
 </html>
