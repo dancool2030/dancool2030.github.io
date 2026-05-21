@@ -1,4 +1,3 @@
-                            YOUR STYLE STARTS NOW!!!
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -378,8 +377,10 @@ footer{
 
 <div class="product-image">
 
+<!-- NEW MAIN IMAGE -->
+
 <img class="clickable"
-src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png">
+src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png">
 
 </div>
 
@@ -477,6 +478,11 @@ src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299
 
 <img class="clickable"
 src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png">
+
+<!-- OLD MAIN IMAGE MOVED TO GALLERY -->
+
+<img class="clickable"
+src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png">
 
 </div>
 
