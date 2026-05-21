@@ -1,4 +1,5 @@
-html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,7 +8,6 @@ html lang="en">
 <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
 
 <style>
-
 *{
   margin:0;
   padding:0;
@@ -69,7 +69,7 @@ nav a{
   justify-content:center;
 }
 
-/* BANNER (FIXED LOWER) */
+/* BANNER */
 .top-banner{
   position:fixed;
   top:110px;
@@ -128,7 +128,7 @@ nav a{
 .buy{background:#ff2d55;color:white;}
 .cart{background:#19c37d;color:white;}
 
-/* SIZE BUTTONS */
+/* SIZE */
 .sizes{
   display:flex;
   gap:10px;
@@ -205,7 +205,7 @@ nav a{
   max-height:90%;
 }
 
-/* BACKDROP */
+/* CART */
 .cart-backdrop{
   position:fixed;
   inset:0;
@@ -221,7 +221,6 @@ nav a{
   pointer-events:auto;
 }
 
-/* CART PANEL */
 .cart-panel{
   position:fixed;
   top:0;
@@ -236,6 +235,19 @@ nav a{
 }
 
 .cart-panel.active{right:0;}
+
+.close-cart{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:35px;
+  height:35px;
+  border:none;
+  border-radius:50%;
+  background:#ff2d55;
+  color:white;
+  cursor:pointer;
+}
 
 .item{
   display:flex;
@@ -260,53 +272,26 @@ nav a{
   border-radius:10px;
   cursor:pointer;
 }
-
-/* CLOSE BUTTON */
-.close-cart{
-  position:absolute;
-  top:10px;
-  right:10px;
-  background:#ff2d55;
-  color:white;
-  border:none;
-  width:35px;
-  height:35px;
-  border-radius:50%;
-  cursor:pointer;
-  font-size:18px;
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
 <div class="logo">DWOCK</div>
-
 <div>
 <a href="#">Home</a>
 <a href="#">Shop</a>
-
-<span class="cart-icon" onclick="toggleCart()">🛒
-<span class="cart-count" id="count">0</span>
-</span>
-
+<span class="cart-icon" onclick="toggleCart()">🛒 <span class="cart-count" id="count">0</span></span>
 </div>
 </nav>
 
-<!-- BANNER -->
-<div class="top-banner" id="banner">
-YOUR STYLE STARTS NOW!!!
-</div>
+<div class="top-banner" id="banner">YOUR STYLE STARTS NOW!!!</div>
 
-<!-- HERO -->
 <section class="hero">
 <div class="container">
 
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
-onclick="openImg(this.src)">
+<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png" onclick="openImg(this.src)">
 
 <div>
 <h1>DWOCK STREETWEAR</h1>
@@ -320,71 +305,63 @@ onclick="openImg(this.src)">
 
 <button class="btn buy" onclick="addToCart('Main Shirt',30)">BUY NOW</button>
 <button class="btn cart" onclick="addToCart('Main Shirt',30)">ADD TO CART</button>
-
 </div>
+
 </div>
 </section>
 
-<!-- GALLERY (ALL IMAGES KEPT) -->
 <section class="gallery">
 <h2 class="gallery-title">LATEST DROPS</h2>
 
 <div class="gallery-grid">
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 1',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png"><button onclick="addToCart('Drop 1',25)">Add</button></div>
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 2',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png"><button onclick="addToCart('Drop 2',25)">Add</button></div>
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 3',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png"><button onclick="addToCart('Drop 3',25)">Add</button></div>
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 4',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png"><button onclick="addToCart('Drop 4',25)">Add</button></div>
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 5',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png"><button onclick="addToCart('Drop 5',25)">Add</button></div>
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2449.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 6',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2449.png"><button onclick="addToCart('Drop 6',25)">Add</button></div>
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 7',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png"><button onclick="addToCart('Drop 7',25)">Add</button></div>
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 8',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png"><button onclick="addToCart('Drop 8',25)">Add</button></div>
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 9',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png"><button onclick="addToCart('Drop 9',25)">Add</button></div>
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0591%20(1).jpeg" onclick="openImg(this.src)"><button onclick="addToCart('Drop 10',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0591%20(1).jpeg"><button onclick="addToCart('Drop 10',25)">Add</button></div>
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 11',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png"><button onclick="addToCart('Drop 11',25)">Add</button></div>
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 12',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png"><button onclick="addToCart('Drop 12',25)">Add</button></div>
 
 </div>
 </section>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="this.style.display='none'">
 <img id="bigImg">
 </div>
 
-<!-- BACKDROP -->
 <div class="cart-backdrop" id="cartBackdrop" onclick="toggleCart()"></div>
 
-<!-- CART -->
 <div class="cart-panel" id="cartPanel">
-
 <button class="close-cart" onclick="toggleCart()">✖</button>
-
 <h2>Your Cart</h2>
 <div id="cartItems"></div>
 <div class="total" id="total">Total: $0</div>
 <button class="checkout" onclick="checkout()">Checkout</button>
-
 </div>
 
 <script>
-
-let cart = [];
-let selectedSize = "M";
+let cart=[];
+let selectedSize="M";
 
 function setSize(btn,size){
-selectedSize = size;
+selectedSize=size;
 document.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("active"));
 btn.classList.add("active");
 }
@@ -413,8 +390,6 @@ box.innerHTML+=`
 
 count.innerText=cart.length;
 total.innerText="Total: $"+sum;
-
-localStorage.setItem("cart",JSON.stringify(cart));
 }
 
 function toggleCart(){
@@ -427,19 +402,9 @@ document.getElementById("bigImg").src=src;
 document.getElementById("lightbox").style.display="flex";
 }
 
-window.addEventListener("scroll",()=>{
-const b=document.getElementById("banner");
-if(window.scrollY>80){
-b.classList.add("small");
-}else{
-b.classList.remove("small");
-}
-});
-
 function checkout(){
 alert("Checkout coming soon 🔥");
 }
-
 </script>
 
 </body>
