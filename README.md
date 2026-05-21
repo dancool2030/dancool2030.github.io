@@ -456,6 +456,7 @@ footer{
 <h2 class="gallery-title">LATEST DROPS</h2>
 
 <div class="gallery-grid">
+<img scr="https://raw.github.com/dancool2030/dancool2030.github.io/blob/2e4acb1c6cc0ff07bd872b18b9e1ebe76b7faf16/IMG_0591%20(1).jpeg">
 
 <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png">
 
@@ -474,7 +475,7 @@ footer{
 <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png">
 
 <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png">
-<img scr="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/blob/dda18125333f67f0cd5b2418e06ddd644e781a5d/IMG_0594.png">
+<img scr="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png">
 </div>
 
 </section>
