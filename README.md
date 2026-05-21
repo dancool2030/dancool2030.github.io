@@ -1,10 +1,8 @@
-                      YOUR STYLE STARTS NOW!!!
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>DWOCK Official Store</title>
+<title>DWOCK STORE</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
 
@@ -14,38 +12,12 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Modak', cursive;
+  font-family:'Modak',cursive;
 }
 
 body{
   background:white;
   overflow-x:hidden;
-  color:#111;
-}
-
-/* BACKGROUND */
-
-body::before,
-body::after{
-  content:"";
-  position:fixed;
-  width:350px;
-  height:350px;
-  filter:blur(70px);
-  opacity:.2;
-  z-index:-1;
-}
-
-body::before{
-  background:radial-gradient(circle,#ff2d55,transparent 60%);
-  top:-120px;
-  left:-120px;
-}
-
-body::after{
-  background:radial-gradient(circle,#0BA3FF,transparent 60%);
-  bottom:-120px;
-  right:-120px;
 }
 
 /* NAV */
@@ -59,8 +31,7 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(255,255,255,.75);
-  backdrop-filter:blur(15px);
+  background:rgba(255,255,255,.9);
   border-bottom:1px solid #eee;
   z-index:1000;
 }
@@ -68,151 +39,117 @@ nav{
 .logo{
   font-size:38px;
   color:#ff2d55;
-  letter-spacing:3px;
 }
 
 nav a{
+  margin-left:15px;
+  font-size:16px;
   text-decoration:none;
   color:#111;
-  font-size:16px;
-  margin-left:18px;
+}
+
+/* CART ICON */
+
+.cart-icon{
+  position:relative;
+  cursor:pointer;
+  font-size:20px;
+}
+
+.cart-count{
+  position:absolute;
+  top:-8px;
+  right:-10px;
+  background:red;
+  color:white;
+  font-size:12px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* TOP BANNER */
+
+.top-banner{
+  position:fixed;
+  top:70px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:38px;
+  color:#ff2d55;
+  letter-spacing:3px;
+  z-index:999;
+  text-align:center;
+  pointer-events:none;
+  animation:bounceGlow 2.5s infinite;
+  transition:.3s;
+}
+
+.top-banner.small{
+  font-size:22px;
+  top:55px;
+  opacity:.9;
+}
+
+@keyframes bounceGlow{
+  0%,100%{
+    transform:translateX(-50%) translateY(0);
+    text-shadow:0 0 0px #ff2d55;
+  }
+  50%{
+    transform:translateX(-50%) translateY(-6px);
+    text-shadow:0 0 20px #ff2d55;
+  }
 }
 
 /* HERO */
 
 .hero{
-  min-height:100vh;
+  padding:140px 6% 40px;
   display:flex;
-  align-items:center;
   justify-content:center;
-  padding:120px 6% 60px;
 }
 
 .container{
   display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:50px;
   flex-wrap:wrap;
-  max-width:1200px;
+  gap:40px;
+  max-width:1100px;
+  align-items:center;
 }
 
-/* IMAGE */
-
-.product-image img{
-  width:100%;
-  max-width:420px;
-  border-radius:22px;
-  padding:10px;
-  background:white;
-  box-shadow:0 12px 30px rgba(0,0,0,.10);
+.hero img{
+  width:350px;
+  border-radius:18px;
   cursor:pointer;
 }
-
-/* TEXT */
-
-.tag{
-  background:#0BA3FF;
-  color:white;
-  padding:8px 16px;
-  border-radius:999px;
-  font-size:18px;
-  display:inline-block;
-  margin-bottom:15px;
-}
-
-h1{
-  font-size:52px;
-}
-
-.subtitle{
-  font-size:16px;
-  color:#555;
-  margin:12px 0 20px;
-  max-width:450px;
-}
-
-/* PRICE */
-
-.price{
-  display:flex;
-  gap:15px;
-  margin-bottom:20px;
-}
-
-.new-price{font-size:38px;color:#ff2d55;}
-.old-price{font-size:22px;color:#aaa;text-decoration:line-through;}
-
-/* SIZE */
-
-.size-buttons{
-  display:flex;
-  gap:10px;
-  margin-bottom:20px;
-}
-
-.size{
-  width:50px;
-  height:50px;
-  border:none;
-  border-radius:12px;
-  font-size:20px;
-  cursor:pointer;
-}
-
-.size:nth-child(1){background:#0BA3FF;color:white;}
-.size:nth-child(2){background:#ff2d55;color:white;}
-.size:nth-child(3){background:#19c37d;color:white;}
 
 /* BUTTONS */
 
-.buttons{
-  display:flex;
-  gap:12px;
-  margin-bottom:25px;
-}
-
 .btn{
-  padding:12px 22px;
-  font-size:18px;
+  padding:12px 18px;
   border:none;
   border-radius:12px;
   cursor:pointer;
+  font-size:18px;
 }
 
 .buy{background:#ff2d55;color:white;}
 .cart{background:#19c37d;color:white;}
 
-/* FEATURES */
-
-.features{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.feature{
-  background:white;
-  padding:12px;
-  border-radius:12px;
-  border:1px solid #eee;
-  min-width:140px;
-  box-shadow:0 6px 18px rgba(0,0,0,.06);
-}
-
-.feature h4{font-size:18px;}
-.feature p{font-size:13px;color:#666;}
-
 /* GALLERY */
 
 .gallery{
-  padding:70px 6%;
+  padding:60px 6%;
 }
 
 .gallery-title{
   text-align:center;
   font-size:42px;
-  margin-bottom:35px;
+  margin-bottom:30px;
 }
 
 .gallery-grid{
@@ -221,18 +158,28 @@ h1{
   gap:18px;
 }
 
-.gallery-grid img{
-  width:100%;
-  border-radius:14px;
-  padding:6px;
+.card{
   background:white;
-  box-shadow:0 10px 25px rgba(0,0,0,.10);
-  cursor:pointer;
-  transition:.3s;
+  padding:6px;
+  border-radius:14px;
+  box-shadow:0 10px 20px rgba(0,0,0,.1);
 }
 
-.gallery-grid img:hover{
-  transform:scale(1.03);
+.card img{
+  width:100%;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.card button{
+  width:100%;
+  margin-top:8px;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  background:#0BA3FF;
+  color:white;
+  cursor:pointer;
 }
 
 /* LIGHTBOX */
@@ -240,26 +187,59 @@ h1{
 .lightbox{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.92);
+  background:rgba(0,0,0,.9);
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:5000;
+  z-index:2000;
 }
 
 .lightbox img{
   max-width:90%;
   max-height:90%;
-  border-radius:18px;
 }
 
-/* FOOTER */
+/* CART */
 
-footer{
-  text-align:center;
-  padding:25px;
-  font-size:16px;
-  border-top:1px solid #eee;
+.cart-panel{
+  position:fixed;
+  top:0;
+  right:-380px;
+  width:320px;
+  height:100%;
+  background:white;
+  box-shadow:-10px 0 30px rgba(0,0,0,.2);
+  padding:20px;
+  transition:.3s;
+  z-index:3000;
+}
+
+.cart-panel.active{
+  right:0;
+}
+
+.item{
+  display:flex;
+  justify-content:space-between;
+  margin:10px 0;
+  border-bottom:1px solid #eee;
+  padding-bottom:8px;
+}
+
+.total{
+  margin-top:20px;
+  font-size:22px;
+}
+
+.checkout{
+  margin-top:15px;
+  width:100%;
+  padding:12px;
+  background:#ff2d55;
+  color:white;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
 }
 
 </style>
@@ -267,132 +247,140 @@ footer{
 
 <body>
 
+<!-- NAV -->
 <nav>
 <div class="logo">DWOCK</div>
+
 <div>
-  <a href="#">Home</a>
-  <a href="#">Shop</a>
-  <a href="#">Drops</a>
-  <a href="#">Contact</a>
+<a href="#">Home</a>
+<a href="#">Shop</a>
+
+<span class="cart-icon" onclick="toggleCart()">🛒
+<span class="cart-count" id="count">0</span>
+</span>
+
 </div>
 </nav>
 
+<!-- TOP BANNER -->
+<div class="top-banner" id="banner">
+YOUR STYLE STARTS NOW!!!
+</div>
+
+<!-- HERO -->
 <section class="hero">
 <div class="container">
 
-<div class="product-image">
-<img class="clickable"
-src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png">
-</div>
+<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
+onclick="openImg(this.src)">
 
-<div class="product-info">
-
-<div class="tag">YOUR STYLE STARTS NOW</div>
+<div>
 <h1>DWOCK STREETWEAR</h1>
+<p>$30</p>
 
-<p class="subtitle">
-Premium streetwear made for riders and everyday fits.
-Clean colors, bold graphics, and comfortable material.
-</p>
-
-<div class="price">
-<div class="new-price">$30</div>
-<div class="old-price">$65</div>
+<button class="btn buy" onclick="addToCart('Main Shirt',30)">BUY NOW</button>
+<button class="btn cart" onclick="addToCart('Main Shirt',30)">ADD TO CART</button>
 </div>
 
-<div class="size-buttons">
-<button class="size">S</button>
-<button class="size">M</button>
-<button class="size">L</button>
-</div>
-
-<div class="buttons">
-<button class="btn buy">BUY NOW</button>
-<button class="btn cart">ADD TO CART</button>
-</div>
-
-<div class="features">
-<div class="feature"><h4>FAST</h4><p>24h shipping.</p></div>
-<div class="feature"><h4>PREMIUM</h4><p>Heavyweight comfort fit.</p></div>
-<div class="feature"><h4>LIMITED</h4><p>Exclusive drops.</p></div>
-</div>
-
-</div>
 </div>
 </section>
 
+<!-- GALLERY (ALL YOUR IMAGES) -->
 <section class="gallery">
 
 <h2 class="gallery-title">LATEST DROPS</h2>
 
 <div class="gallery-grid">
 
-<img class="clickable" src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png">
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 1',25)">Add</button></div>
 
-<img class="clickable" src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png">
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 2',25)">Add</button></div>
 
-<img class="clickable" src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png">
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 3',25)">Add</button></div>
 
-<img class="clickable" src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png">
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 4',25)">Add</button></div>
 
-<img class="clickable" src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png">
-
-<img class="clickable" src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2449.png">
-
-<img class="clickable" src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png">
-
-<img class="clickable" src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png">
-
-<img class="clickable" src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png">
-
-<img class="clickable" src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0591%20(1).jpeg">
-
-<img class="clickable" src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png">
-
-<img class="clickable" src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png">
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 5',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2449.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 6',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 7',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 8',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 9',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0591%20(1).jpeg" onclick="openImg(this.src)"><button onclick="addToCart('Drop 10',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 11',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 12',25)">Add</button></div>
 
 </div>
 
 </section>
 
-<div class="lightbox" id="lightbox">
-<img id="lightbox-img">
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+<img id="bigImg">
 </div>
 
-<footer>© 2026 DWOCK Official Store</footer>
+<!-- CART -->
+<div class="cart-panel" id="cartPanel">
+<h2>Your Cart</h2>
+<div id="cartItems"></div>
+<div class="total" id="total">Total: $0</div>
+<button class="checkout" onclick="checkout()">Checkout</button>
+</div>
 
 <script>
 
-const images = document.querySelectorAll('.clickable');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
+let cart=[];
 
-images.forEach(img=>{
-  img.addEventListener('click',()=>{
-    lightbox.style.display='flex';
-    lightboxImg.src=img.src;
-  });
+function addToCart(name,price){
+cart.push({name,price});
+updateCart();
+}
+
+function updateCart(){
+
+let box=document.getElementById("cartItems");
+let count=document.getElementById("count");
+let total=document.getElementById("total");
+
+box.innerHTML="";
+let sum=0;
+
+cart.forEach(item=>{
+sum+=item.price;
+box.innerHTML+=`
+<div class="item">
+<span>${item.name}</span>
+<span>$${item.price}</span>
+</div>`;
 });
 
-lightbox.addEventListener('click',()=>{
-  lightbox.style.display='none';
+count.innerText=cart.length;
+total.innerText="Total: $"+sum;
+
+localStorage.setItem("cart",JSON.stringify(cart));
+}
+
+function toggleCart(){
+document.getElementById("cartPanel").classList.toggle("active");
+}
+
+function openImg(src){
+document.getElementById("bigImg").src=src;
+document.getElementById("lightbox").style.display="flex";
+}
+
+/* SCROLL ANIMATION */
+window.addEventListener("scroll",()=>{
+const b=document.getElementById("banner");
+if(window.scrollY>80){
+b.classList.add("small");
+}else{
+b.classList.remove("small");
+}
 });
 
-const sizes=document.querySelectorAll('.size');
-
-sizes.forEach(size=>{
-  size.addEventListener('click',()=>{
-    sizes.forEach(b=>b.style.opacity=".5");
-    size.style.opacity="1";
-  });
-});
-
-const cartBtn=document.querySelector('.cart');
-
-cartBtn.addEventListener('click',()=>{
-  cartBtn.innerHTML="ADDED ✓";
-  setTimeout(()=>cartBtn.innerHTML="ADD TO CART",2000);
-});
+function checkout(){
+alert("Checkout coming soon 🔥");
+}
 
 </script>
 
