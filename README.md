@@ -47,7 +47,7 @@ nav a{
   color:#111;
 }
 
-/* CART ICON */
+/* CART */
 .cart-icon{
   position:relative;
   cursor:pointer;
@@ -69,10 +69,10 @@ nav a{
   justify-content:center;
 }
 
-/* TOP BANNER */
+/* BANNER (LOWERED) */
 .top-banner{
   position:fixed;
-  top:70px;
+  top:110px;
   left:50%;
   transform:translateX(-50%);
   font-size:38px;
@@ -85,9 +85,8 @@ nav a{
 }
 
 .top-banner.small{
-  font-size:20px;
-  top:55px;
-  opacity:.9;
+  font-size:22px;
+  top:85px;
 }
 
 @keyframes bounceGlow{
@@ -97,7 +96,7 @@ nav a{
 
 /* HERO */
 .hero{
-  padding:140px 6% 40px;
+  padding:180px 6% 40px;
   display:flex;
   justify-content:center;
 }
@@ -137,10 +136,15 @@ nav a{
 
 .size-btn{
   padding:8px 14px;
+  border-radius:10px;
   border:2px solid #111;
-  border-radius:8px;
   cursor:pointer;
   background:white;
+}
+
+.size-btn.active{
+  background:#111;
+  color:white;
 }
 
 /* GALLERY */
@@ -237,6 +241,7 @@ nav a{
   color:white;
   border:none;
   border-radius:10px;
+  cursor:pointer;
 }
 
 </style>
@@ -244,6 +249,7 @@ nav a{
 
 <body>
 
+<!-- NAV -->
 <nav>
 <div class="logo">DWOCK</div>
 
@@ -258,10 +264,12 @@ nav a{
 </div>
 </nav>
 
+<!-- BANNER (FIXED LOWER) -->
 <div class="top-banner" id="banner">
 YOUR STYLE STARTS NOW!!!
 </div>
 
+<!-- HERO -->
 <section class="hero">
 <div class="container">
 
@@ -272,36 +280,60 @@ onclick="openImg(this.src)">
 <h1>DWOCK STREETWEAR</h1>
 <p>$30</p>
 
-<!-- SIZE BUTTONS ADDED -->
+<!-- SIZE BUTTONS -->
 <div class="sizes">
-<button class="size-btn">S</button>
-<button class="size-btn">M</button>
-<button class="size-btn">L</button>
+<button class="size-btn" onclick="setSize(this,'S')">S</button>
+<button class="size-btn" onclick="setSize(this,'M')">M</button>
+<button class="size-btn" onclick="setSize(this,'L')">L</button>
 </div>
 
 <button class="btn buy" onclick="addToCart('Main Shirt',30)">BUY NOW</button>
 <button class="btn cart" onclick="addToCart('Main Shirt',30)">ADD TO CART</button>
-</div>
 
+</div>
 </div>
 </section>
 
+<!-- GALLERY (ALL ORIGINAL IMAGES KEPT) -->
 <section class="gallery">
+
 <h2 class="gallery-title">LATEST DROPS</h2>
 
 <div class="gallery-grid">
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png"><button onclick="addToCart('Drop 1',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 1',25)">Add</button></div>
 
-<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png"><button onclick="addToCart('Drop 2',25)">Add</button></div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 2',25)">Add</button></div>
+
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 3',25)">Add</button></div>
+
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 4',25)">Add</button></div>
+
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 5',25)">Add</button></div>
+
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2449.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 6',25)">Add</button></div>
+
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 7',25)">Add</button></div>
+
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 8',25)">Add</button></div>
+
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 9',25)">Add</button></div>
+
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0591%20(1).jpeg" onclick="openImg(this.src)"><button onclick="addToCart('Drop 10',25)">Add</button></div>
+
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 11',25)">Add</button></div>
+
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png" onclick="openImg(this.src)"><button onclick="addToCart('Drop 12',25)">Add</button></div>
 
 </div>
 </section>
 
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="this.style.display='none'">
 <img id="bigImg">
 </div>
 
+<!-- CART -->
 <div class="cart-panel" id="cartPanel">
 <h2>Your Cart</h2>
 <div id="cartItems"></div>
@@ -311,10 +343,17 @@ onclick="openImg(this.src)">
 
 <script>
 
-let cart=[];
+let cart = [];
+let selectedSize = "M";
+
+function setSize(btn,size){
+selectedSize = size;
+document.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
+}
 
 function addToCart(name,price){
-cart.push({name,price});
+cart.push({name,price,size:selectedSize});
 updateCart();
 }
 
@@ -330,13 +369,15 @@ cart.forEach(item=>{
 sum+=item.price;
 box.innerHTML+=`
 <div class="item">
-<span>${item.name}</span>
+<span>${item.name} (${item.size})</span>
 <span>$${item.price}</span>
 </div>`;
 });
 
 count.innerText=cart.length;
 total.innerText="Total: $"+sum;
+
+localStorage.setItem("cart",JSON.stringify(cart));
 }
 
 function toggleCart(){
@@ -352,6 +393,8 @@ window.addEventListener("scroll",()=>{
 const b=document.getElementById("banner");
 if(window.scrollY>80){
 b.classList.add("small");
+}else{
+b.classList.remove("small");
 }
 });
 
