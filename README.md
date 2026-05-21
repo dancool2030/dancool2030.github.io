@@ -430,7 +430,7 @@ ADD TO CART
 <div class="gallery-grid">
 
 <div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png" onclick="openImg(this.src)">
+
 <button onclick="addToCart('Drop 1',25)">Add</button>
 </div>
 
