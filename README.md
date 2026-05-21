@@ -462,9 +462,6 @@ src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1
 src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png">
 
 <img class="clickable"
-src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2449.png">
-
-<img class="clickable"
 src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png">
 
 <img class="clickable"
