@@ -474,7 +474,7 @@ footer{
 <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png">
 
 <img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png">
-
+<img scr="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/blob/dda18125333f67f0cd5b2418e06ddd644e781a5d/IMG_0594.png">
 </div>
 
 </section>
