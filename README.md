@@ -106,46 +106,6 @@ nav{
   color:white;
 }
 
-/* ACTION BUTTONS */
-.actions{
-  margin-top:15px;
-}
-
-.actions button{
-  padding:12px 16px;
-  margin:5px;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
-}
-
-.buy{ background:#ff2d55; color:white; }
-.add{ background:#19c37d; color:white; }
-
-/* START SCREEN */
-.start-screen{
-  position:fixed;
-  inset:0;
-  background:white;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  z-index:4000;
-}
-
-.start-screen img{
-  width:260px;
-  border-radius:16px;
-  cursor:pointer;
-}
-
-.start-text{
-  margin-top:10px;
-  font-size:22px;
-  color:#ff2d55;
-}
-
 /* CART */
 .cart-panel{
   position:fixed;
@@ -175,6 +135,7 @@ nav{
   font-size:20px;
 }
 
+/* CLOSE BUTTON */
 .close-btn{
   position:absolute;
   top:10px;
@@ -188,17 +149,25 @@ nav{
   cursor:pointer;
 }
 
+.actions{
+  margin-top:15px;
+}
+
+.actions button{
+  padding:12px 16px;
+  margin:5px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.buy{ background:#ff2d55; color:white; }
+.add{ background:#19c37d; color:white; }
+
 </style>
 </head>
 
 <body>
-
-<!-- START SCREEN -->
-<div class="start-screen" id="start">
-  <img onclick="enterSite()"
-  src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png">
-  <div class="start-text">TAP TO ENTER</div>
-</div>
 
 <!-- NAV -->
 <nav>
@@ -210,39 +179,37 @@ nav{
   </div>
 </nav>
 
-<!-- TOP TEXT -->
+<!-- TOP -->
 <div class="top-banner">
-  YOUR STYLE STARTS NOW
+YOUR STYLE STARTS NOW
 </div>
 
 <!-- HERO -->
 <section class="hero">
 
-  <img id="mainImage" class="main-img"
-  src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png">
+  <img id="mainImage" class="main-img">
 
-  <!-- SIZE -->
   <div class="btn-row">
+
     <button class="size-btn active" onclick="setSize(this,'S')">S</button>
     <button class="size-btn" onclick="setSize(this,'M')">M</button>
     <button class="size-btn" onclick="setSize(this,'L')">L</button>
+
   </div>
 
-  <!-- COLOR IMAGES (ALL YOUR IMAGES) -->
   <div class="btn-row">
 
-    <button class="color-btn active" onclick="changeImage(0,this)">DROP 1</button>
-    <button class="color-btn" onclick="changeImage(1,this)">DROP 2</button>
-    <button class="color-btn" onclick="changeImage(2,this)">DROP 3</button>
-    <button class="color-btn" onclick="changeImage(3,this)">DROP 4</button>
-    <button class="color-btn" onclick="changeImage(4,this)">DROP 5</button>
-    <button class="color-btn" onclick="changeImage(5,this)">DROP 6</button>
-    <button class="color-btn" onclick="changeImage(6,this)">DROP 7</button>
-    <button class="color-btn" onclick="changeImage(7,this)">DROP 8</button>
+    <button class="color-btn active" onclick="changeImage(0,this)">1</button>
+    <button class="color-btn" onclick="changeImage(1,this)">2</button>
+    <button class="color-btn" onclick="changeImage(2,this)">3</button>
+    <button class="color-btn" onclick="changeImage(3,this)">4</button>
+    <button class="color-btn" onclick="changeImage(4,this)">5</button>
+    <button class="color-btn" onclick="changeImage(5,this)">6</button>
+    <button class="color-btn" onclick="changeImage(6,this)">7</button>
+    <button class="color-btn" onclick="changeImage(7,this)">8</button>
 
   </div>
 
-  <!-- ACTIONS -->
   <div class="actions">
     <button class="buy" onclick="addToCart()">BUY NOW</button>
     <button class="add" onclick="addToCart()">ADD TO CART</button>
@@ -265,10 +232,7 @@ nav{
 
 <script>
 
-let cart = [];
-let selectedSize = "S";
-
-/* ALL YOUR IMAGES */
+/* ALL YOUR IMAGES (RESTORED) */
 const images = [
 "https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png",
 "https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png",
@@ -280,19 +244,19 @@ const images = [
 "https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png"
 ];
 
-/* START */
-function enterSite(){
-  document.getElementById("start").style.display="none";
-}
+document.getElementById("mainImage").src = images[0];
+
+let cart = [];
+let selectedSize = "S";
 
 /* SIZE */
 function setSize(btn,size){
-  selectedSize=size;
+  selectedSize = size;
   document.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("active"));
   btn.classList.add("active");
 }
 
-/* CHANGE IMAGE */
+/* IMAGE SWITCH */
 function changeImage(index,btn){
   document.getElementById("mainImage").src = images[index];
   document.querySelectorAll(".color-btn").forEach(b=>b.classList.remove("active"));
@@ -301,28 +265,28 @@ function changeImage(index,btn){
 
 /* CART */
 function addToCart(){
-  cart.push({ name:"DWOCK ITEM", size:selectedSize });
+  cart.push({name:"DWOCK ITEM", size:selectedSize});
   updateCart();
 }
 
 function updateCart(){
-  let box=document.getElementById("cartItems");
-  let total=document.getElementById("total");
-  let count=document.getElementById("count");
+  let box = document.getElementById("cartItems");
+  let total = document.getElementById("total");
+  let count = document.getElementById("count");
 
-  box.innerHTML="";
-  let sum=0;
+  box.innerHTML = "";
+  let sum = 0;
 
   cart.forEach(item=>{
-    sum+=30;
-    box.innerHTML+=`<div class="cart-item">${item.name} (${item.size}) - $30</div>`;
+    sum += 30;
+    box.innerHTML += `<div class="cart-item">${item.name} (${item.size}) - $30</div>`;
   });
 
-  total.innerText="Total: $"+sum;
-  count.innerText=cart.length;
+  total.innerText = "Total: $" + sum;
+  count.innerText = cart.length;
 }
 
-/* CART TOGGLE */
+/* CART TOGGLE (FIXED) */
 function toggleCart(){
   document.getElementById("cart").classList.toggle("active");
 }
