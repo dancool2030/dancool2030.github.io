@@ -1,304 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DWOCK STORE</title>
+<!-- REPLACE ONLY THE HERO SECTION WITH THIS -->
 
-<link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Modak',cursive;
-}
-
-body{
-  background:#fff;
-  overflow-x:hidden;
-}
-
-/* NAV */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  height:70px;
-  background:white;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 6%;
-  border-bottom:1px solid #eee;
-  z-index:1000;
-}
-
-.logo{
-  font-size:40px;
-  color:#ff2d55;
-}
-
-/* CART ICON */
-.cart-icon{
-  position:relative;
-  cursor:pointer;
-  font-size:28px;
-}
-
-.cart-count{
-  position:absolute;
-  top:-8px;
-  right:-10px;
-  background:#ff2d55;
-  color:white;
-  width:18px;
-  height:18px;
-  font-size:12px;
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-/* TOP TEXT */
-.top-banner{
-  margin-top:70px;
-  text-align:center;
-  font-size:32px;
-  color:#ff2d55;
-  padding:18px 10px;
-}
-
-/* HERO */
-.hero{
-  text-align:center;
-  padding-top:30px;
-}
-
-.main-img{
-  width:280px;
-  border-radius:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* BUTTONS */
-.btn-row{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:10px;
-}
-
-.size-btn,.color-btn{
-  padding:10px 14px;
-  border:2px solid #111;
-  background:white;
-  border-radius:10px;
-  cursor:pointer;
-}
-
-.active{
-  background:#111;
-  color:white;
-}
-
-/* CART */
-.cart-panel{
-  position:fixed;
-  top:0;
-  right:-350px;
-  width:300px;
-  height:100%;
-  background:white;
-  transition:0.3s ease;
-  box-shadow:-10px 0 30px rgba(0,0,0,0.2);
-  padding:20px;
-  z-index:3000;
-}
-
-.cart-panel.active{
-  right:0;
-}
-
-.cart-item{
-  margin-top:10px;
-  padding-bottom:10px;
-  border-bottom:1px solid #ddd;
-}
-
-.total{
-  margin-top:20px;
-  font-size:20px;
-}
-
-.close-btn{
-  position:absolute;
-  top:10px;
-  right:10px;
-  border:none;
-  background:#ff2d55;
-  color:white;
-  width:30px;
-  height:30px;
-  border-radius:50%;
-  cursor:pointer;
-}
-
-/* START */
-.start-screen{
-  position:fixed;
-  inset:0;
-  background:white;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  z-index:4000;
-}
-
-.start-screen img{
-  width:260px;
-  border-radius:16px;
-  cursor:pointer;
-}
-
-.start-text{
-  margin-top:10px;
-  font-size:22px;
-  color:#ff2d55;
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- START -->
-<div class="start-screen" id="start">
-  <img onclick="enterSite()"
-  src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png">
-  <div class="start-text">TAP TO ENTER</div>
-</div>
-
-<!-- NAV -->
-<nav>
-  <div class="logo">DWOCK</div>
-
-  <div class="cart-icon" onclick="toggleCart()">
-    🛒
-    <div class="cart-count" id="count">0</div>
-  </div>
-</nav>
-
-<!-- TOP -->
-<div class="top-banner">
-  YOUR STYLE STARTS NOW
-</div>
-
-<!-- HERO -->
 <section class="hero">
+<div class="container">
 
-  <img id="mainImage" class="main-img"
-  src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png">
+<!-- MAIN PRODUCT AREA -->
 
-  <!-- SIZE -->
-  <div class="btn-row">
-    <button class="size-btn active" onclick="setSize(this,'S')">S</button>
-    <button class="size-btn" onclick="setSize(this,'M')">M</button>
-    <button class="size-btn" onclick="setSize(this,'L')">L</button>
-  </div>
+<div>
 
-  <!-- IMAGES -->
-  <div class="btn-row">
-    <button class="color-btn active" onclick="changeImage(0,this)">1</button>
-    <button class="color-btn" onclick="changeImage(1,this)">2</button>
-    <button class="color-btn" onclick="changeImage(2,this)">3</button>
-    <button class="color-btn" onclick="changeImage(3,this)">4</button>
-    <button class="color-btn" onclick="changeImage(4,this)">5</button>
-    <button class="color-btn" onclick="changeImage(5,this)">6</button>
-    <button class="color-btn" onclick="changeImage(6,this)">7</button>
-    <button class="color-btn" onclick="changeImage(7,this)">8</button>
-    <button class="color-btn" onclick="changeImage(8,this)">9</button>
-  </div>
+<img 
+id="mainProduct"
+src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
+onclick="openImg(this.src)"
+>
 
+<!-- COLOR SWITCH BUTTONS -->
+
+<div style="
+display:flex;
+gap:12px;
+margin-top:15px;
+justify-content:center;
+flex-wrap:wrap;
+">
+
+<button onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png')"
+style="
+width:28px;
+height:28px;
+border-radius:50%;
+border:none;
+cursor:pointer;
+background:#0BA3FF;
+box-shadow:0 0 10px rgba(0,0,0,.2);
+"></button>
+
+<button onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png')"
+style="
+width:28px;
+height:28px;
+border-radius:50%;
+border:none;
+cursor:pointer;
+background:#ff2d55;
+box-shadow:0 0 10px rgba(0,0,0,.2);
+"></button>
+
+<button onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png')"
+style="
+width:28px;
+height:28px;
+border-radius:50%;
+border:none;
+cursor:pointer;
+background:#19c37d;
+box-shadow:0 0 10px rgba(0,0,0,.2);
+"></button>
+
+<button onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png')"
+style="
+width:28px;
+height:28px;
+border-radius:50%;
+border:none;
+cursor:pointer;
+background:#111;
+box-shadow:0 0 10px rgba(0,0,0,.2);
+"></button>
+
+</div>
+
+</div>
+
+<!-- PRODUCT INFO -->
+
+<div>
+
+<h1>DWOCK STREETWEAR</h1>
+
+<p style="font-size:26px;margin:10px 0 20px;">
+Premium streetwear made for everyday fits.
+</p>
+
+<p style="font-size:34px;color:#ff2d55;margin-bottom:20px;">
+$30
+</p>
+
+<button class="btn buy" onclick="addToCart('Main Shirt',30)">
+BUY NOW
+</button>
+
+<button class="btn cart" onclick="addToCart('Main Shirt',30)">
+ADD TO CART
+</button>
+
+</div>
+
+</div>
 </section>
 
-<!-- CART -->
-<div class="cart-panel" id="cart">
-
-  <button class="close-btn" onclick="toggleCart()">✖</button>
-
-  <h2>YOUR CART</h2>
-  <div id="cartItems"></div>
-  <div class="total" id="total">Total: $0</div>
-
-</div>
+<!-- ADD THIS INSIDE YOUR SCRIPT AT THE BOTTOM -->
 
 <script>
 
-let cart = [];
-let selectedSize = "S";
+function changeMainImage(src){
 
-/* 9 UNIQUE IMAGES */
-const images = [
-"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png",
-"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png",
-"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png",
-"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png",
-"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png",
-"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png",
-"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0591%20(1).jpeg",
-"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png",
-"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png"
-];
+document.getElementById("mainProduct").src = src;
 
-function enterSite(){
-  document.getElementById("start").style.display="none";
-}
-
-function setSize(btn,size){
-  selectedSize=size;
-  document.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
-}
-
-function changeImage(i,btn){
-  document.getElementById("mainImage").src = images[i];
-  document.querySelectorAll(".color-btn").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
-}
-
-function addToCart(){
-  cart.push({name:"DWOCK ITEM",size:selectedSize});
-  updateCart();
-}
-
-function updateCart(){
-  let box=document.getElementById("cartItems");
-  let count=document.getElementById("count");
-  let total=document.getElementById("total");
-
-  box.innerHTML="";
-  let sum=0;
-
-  cart.forEach(item=>{
-    sum+=30;
-    box.innerHTML+=`<div class="cart-item">${item.name} (${item.size}) - $30</div>`;
-  });
-
-  total.innerText="Total: $"+sum;
-  count.innerText=cart.length;
-}
-
-function toggleCart(){
-  document.getElementById("cart").classList.toggle("active");
 }
 
 </script>
-
-</body>
-</html>
