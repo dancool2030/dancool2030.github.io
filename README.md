@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>DWOCK STORE</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
 
 <style>
-
 *{
   margin:0;
   padding:0;
@@ -17,145 +16,131 @@
 }
 
 body{
-  background:#fff;
+  background:white;
   overflow-x:hidden;
-  color:#111;
 }
 
-/* NAVBAR */
-
+/* NAV */
 nav{
   position:fixed;
   top:0;
   left:0;
   width:100%;
-  height:75px;
-  padding:0 6%;
-  background:rgba(255,255,255,.96);
-  border-bottom:1px solid #eee;
+  padding:15px 6%;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  background:rgba(255,255,255,.9);
+  border-bottom:1px solid #eee;
   z-index:1000;
-  backdrop-filter:blur(10px);
 }
 
 .logo{
-  font-size:42px;
+  font-size:38px;
   color:#ff2d55;
 }
 
-.nav-right{
-  display:flex;
-  align-items:center;
-  gap:20px;
-}
-
 nav a{
+  margin-left:15px;
+  font-size:16px;
   text-decoration:none;
   color:#111;
-  font-size:18px;
 }
 
-/* CART */
-
+/* CART ICON */
 .cart-icon{
   position:relative;
-  font-size:22px;
   cursor:pointer;
+  font-size:20px;
 }
 
 .cart-count{
   position:absolute;
-  top:-10px;
-  right:-12px;
-  width:20px;
-  height:20px;
-  border-radius:50%;
+  top:-8px;
+  right:-10px;
   background:red;
   color:white;
+  font-size:12px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:12px;
 }
 
-/* TOP BANNER */
-
+/* BANNER */
 .top-banner{
-  position:sticky;
-  top:75px;
-  z-index:900;
-  background:white;
-  text-align:center;
-  padding:14px 10px;
+  position:fixed;
+  top:110px;
+  left:50%;
+  transform:translateX(-50%);
   font-size:38px;
   color:#ff2d55;
   letter-spacing:3px;
+  z-index:999;
+  text-align:center;
+  pointer-events:none;
   animation:bounceGlow 2.5s infinite;
 }
 
+.top-banner.small{
+  font-size:22px;
+  top:85px;
+}
+
 @keyframes bounceGlow{
-  0%,100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform:translateY(-5px);
-  }
+  0%,100%{transform:translateX(-50%) translateY(0);}
+  50%{transform:translateX(-50%) translateY(-6px);}
 }
 
 /* HERO */
-
 .hero{
-  padding:140px 6% 60px;
+  padding:180px 6% 40px;
+  display:flex;
+  justify-content:center;
 }
 
 .container{
-  max-width:1150px;
-  margin:auto;
   display:flex;
   flex-wrap:wrap;
+  gap:40px;
+  max-width:1100px;
   align-items:center;
-  justify-content:center;
-  gap:50px;
 }
 
 .hero img{
   width:350px;
   border-radius:18px;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
   cursor:pointer;
 }
 
-.hero-text{
-  max-width:450px;
+/* BUTTONS */
+.btn{
+  padding:12px 18px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:18px;
+  margin-top:10px;
 }
 
-.hero-text h1{
-  font-size:52px;
-  margin-bottom:10px;
-}
+.buy{background:#ff2d55;color:white;}
+.cart{background:#19c37d;color:white;}
 
-.hero-text p{
-  font-size:28px;
-  margin-bottom:18px;
-}
-
-/* SIZE BUTTONS */
-
+/* SIZE */
 .sizes{
   display:flex;
-  gap:12px;
-  margin-bottom:18px;
+  gap:10px;
+  margin:10px 0;
 }
 
 .size-btn{
-  padding:10px 16px;
+  padding:8px 14px;
   border-radius:10px;
   border:2px solid #111;
-  background:white;
   cursor:pointer;
-  font-size:16px;
+  background:white;
 }
 
 .size-btn.active{
@@ -163,79 +148,48 @@ nav a{
   color:white;
 }
 
-/* MAIN BUTTONS */
-
-.btn{
-  border:none;
-  border-radius:12px;
-  padding:14px 18px;
-  font-size:18px;
-  cursor:pointer;
-  margin-right:10px;
-  margin-top:10px;
-}
-
-.buy{
-  background:#ff2d55;
-  color:white;
-}
-
-.cart{
-  background:#19c37d;
-  color:white;
-}
-
 /* GALLERY */
-
 .gallery{
-  padding:20px 6% 60px;
+  padding:60px 6%;
 }
 
 .gallery-title{
   text-align:center;
   font-size:42px;
-  margin-bottom:35px;
+  margin-bottom:30px;
 }
 
-/* FIXED GAP ISSUE */
-
 .gallery-grid{
-  columns:4 220px;
-  column-gap:18px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
 }
 
 .card{
-  width:100%;
-  display:inline-block;
-  break-inside:avoid;
   background:white;
-  margin-bottom:18px;
-  padding:8px;
-  border-radius:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,.12);
+  padding:6px;
+  border-radius:14px;
+  box-shadow:0 10px 20px rgba(0,0,0,.1);
 }
 
 .card img{
   width:100%;
   border-radius:12px;
-  display:block;
   cursor:pointer;
 }
 
 .card button{
   width:100%;
-  margin-top:10px;
-  padding:12px;
+  margin-top:8px;
+  padding:10px;
   border:none;
   border-radius:10px;
   background:#0BA3FF;
   color:white;
   cursor:pointer;
-  font-size:16px;
 }
 
 /* LIGHTBOX */
-
 .lightbox{
   position:fixed;
   inset:0;
@@ -249,15 +203,13 @@ nav a{
 .lightbox img{
   max-width:90%;
   max-height:90%;
-  border-radius:16px;
 }
 
-/* CART PANEL */
-
+/* CART */
 .cart-backdrop{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.45);
+  background:rgba(0,0,0,.5);
   opacity:0;
   pointer-events:none;
   transition:.3s;
@@ -272,24 +224,22 @@ nav a{
 .cart-panel{
   position:fixed;
   top:0;
-  right:-360px;
+  right:-380px;
   width:320px;
   height:100%;
   background:white;
+  box-shadow:-10px 0 30px rgba(0,0,0,.2);
   padding:20px;
   transition:.3s;
   z-index:3000;
-  box-shadow:-10px 0 30px rgba(0,0,0,.2);
 }
 
-.cart-panel.active{
-  right:0;
-}
+.cart-panel.active{right:0;}
 
 .close-cart{
   position:absolute;
-  top:12px;
-  right:12px;
+  top:10px;
+  right:10px;
   width:35px;
   height:35px;
   border:none;
@@ -302,292 +252,159 @@ nav a{
 .item{
   display:flex;
   justify-content:space-between;
-  margin:12px 0;
-  padding-bottom:10px;
+  margin:10px 0;
   border-bottom:1px solid #eee;
+  padding-bottom:8px;
 }
 
 .total{
   margin-top:20px;
-  font-size:24px;
+  font-size:22px;
 }
 
 .checkout{
+  margin-top:15px;
   width:100%;
-  margin-top:18px;
-  padding:14px;
-  border:none;
-  border-radius:12px;
+  padding:12px;
   background:#ff2d55;
   color:white;
+  border:none;
+  border-radius:10px;
   cursor:pointer;
-  font-size:18px;
 }
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-  .top-banner{
-    font-size:24px;
-  }
-
-  .hero{
-    padding-top:130px;
-  }
-
-  .hero-text h1{
-    font-size:38px;
-  }
-
-  .hero img{
-    width:100%;
-  }
-
-  .gallery-grid{
-    columns:2 160px;
-  }
-
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-
 <nav>
-
 <div class="logo">DWOCK</div>
-
-<div class="nav-right">
+<div>
 <a href="#">Home</a>
 <a href="#">Shop</a>
-
-<div class="cart-icon" onclick="toggleCart()">
-🛒
-<div class="cart-count" id="count">0</div>
+<span class="cart-icon" onclick="toggleCart()">🛒 <span class="cart-count" id="count">0</span></span>
 </div>
-
-</div>
-
 </nav>
 
-<!-- BANNER -->
-
-<div class="top-banner">
-YOUR STYLE STARTS NOW!!!
-</div>
-
-<!-- HERO -->
+<div class="top-banner" id="banner">YOUR STYLE STARTS NOW!!!</div>
 
 <section class="hero">
-
 <div class="container">
 
-<img 
-src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
-onclick="openImg(this.src)"
->
+<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png" onclick="openImg(this.src)">
 
-<div class="hero-text">
-
+<div>
 <h1>DWOCK STREETWEAR</h1>
-
 <p>$30</p>
 
 <div class="sizes">
-
 <button class="size-btn" onclick="setSize(this,'S')">S</button>
-
-<button class="size-btn active" onclick="setSize(this,'M')">M</button>
-
+<button class="size-btn" onclick="setSize(this,'M')">M</button>
 <button class="size-btn" onclick="setSize(this,'L')">L</button>
-
 </div>
 
-<button class="btn buy" onclick="addToCart('Main Shirt',30)">
-BUY NOW
-</button>
-
-<button class="btn cart" onclick="addToCart('Main Shirt',30)">
-ADD TO CART
-</button>
-
+<button class="btn buy" onclick="addToCart('Main Shirt',30)">BUY NOW</button>
+<button class="btn cart" onclick="addToCart('Main Shirt',30)">ADD TO CART</button>
 </div>
 
 </div>
-
 </section>
 
-<!-- GALLERY -->
-
 <section class="gallery">
-
 <h2 class="gallery-title">LATEST DROPS</h2>
 
 <div class="gallery-grid">
 
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 1',25)">Add</button>
-</div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png"><button onclick="addToCart('Drop 1',25)">Add</button></div>
 
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 2',25)">Add</button>
-</div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png"><button onclick="addToCart('Drop 2',25)">Add</button></div>
 
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 3',25)">Add</button>
-</div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png"><button onclick="addToCart('Drop 3',25)">Add</button></div>
 
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 4',25)">Add</button>
-</div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png"><button onclick="addToCart('Drop 4',25)">Add</button></div>
 
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 5',25)">Add</button>
-</div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png"><button onclick="addToCart('Drop 5',25)">Add</button></div>
 
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2449.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 6',25)">Add</button>
-</div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2449.png"><button onclick="addToCart('Drop 6',25)">Add</button></div>
 
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 7',25)">Add</button>
-</div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png"><button onclick="addToCart('Drop 7',25)">Add</button></div>
 
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 8',25)">Add</button>
-</div>
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png"><button onclick="addToCart('Drop 8',25)">Add</button></div>
+
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png"><button onclick="addToCart('Drop 9',25)">Add</button></div>
+
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0591%20(1).jpeg"><button onclick="addToCart('Drop 10',25)">Add</button></div>
+
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png"><button onclick="addToCart('Drop 11',25)">Add</button></div>
+
+<div class="card"><img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png"><button onclick="addToCart('Drop 12',25)">Add</button></div>
 
 </div>
-
 </section>
 
-<!-- LIGHTBOX -->
-
-<div class="lightbox" id="lightbox" onclick="closeImg()">
+<div class="lightbox" id="lightbox" onclick="this.style.display='none'">
 <img id="bigImg">
 </div>
-
-<!-- CART -->
 
 <div class="cart-backdrop" id="cartBackdrop" onclick="toggleCart()"></div>
 
 <div class="cart-panel" id="cartPanel">
-
 <button class="close-cart" onclick="toggleCart()">✖</button>
-
 <h2>Your Cart</h2>
-
 <div id="cartItems"></div>
-
-<div class="total" id="total">
-Total: $0
-</div>
-
-<button class="checkout" onclick="checkout()">
-Checkout
-</button>
-
+<div class="total" id="total">Total: $0</div>
+<button class="checkout" onclick="checkout()">Checkout</button>
 </div>
 
 <script>
-
-let cart = [];
-let selectedSize = "M";
+let cart=[];
+let selectedSize="M";
 
 function setSize(btn,size){
-
-  selectedSize = size;
-
-  document.querySelectorAll(".size-btn")
-  .forEach(b => b.classList.remove("active"));
-
-  btn.classList.add("active");
-
+selectedSize=size;
+document.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
 }
 
 function addToCart(name,price){
-
-  cart.push({
-    name,
-    price,
-    size:selectedSize
-  });
-
-  updateCart();
-
+cart.push({name,price,size:selectedSize});
+updateCart();
 }
 
 function updateCart(){
+let box=document.getElementById("cartItems");
+let count=document.getElementById("count");
+let total=document.getElementById("total");
 
-  let box = document.getElementById("cartItems");
-  let count = document.getElementById("count");
-  let total = document.getElementById("total");
+box.innerHTML="";
+let sum=0;
 
-  box.innerHTML = "";
+cart.forEach(item=>{
+sum+=item.price;
+box.innerHTML+=`
+<div class="item">
+<span>${item.name} (${item.size})</span>
+<span>$${item.price}</span>
+</div>`;
+});
 
-  let sum = 0;
-
-  cart.forEach(item => {
-
-    sum += item.price;
-
-    box.innerHTML += `
-      <div class="item">
-        <span>${item.name} (${item.size})</span>
-        <span>$${item.price}</span>
-      </div>
-    `;
-
-  });
-
-  count.innerText = cart.length;
-
-  total.innerText = "Total: $" + sum;
-
+count.innerText=cart.length;
+total.innerText="Total: $"+sum;
 }
 
 function toggleCart(){
-
-  document.getElementById("cartPanel")
-  .classList.toggle("active");
-
-  document.getElementById("cartBackdrop")
-  .classList.toggle("active");
-
+document.getElementById("cartPanel").classList.toggle("active");
+document.getElementById("cartBackdrop").classList.toggle("active");
 }
 
 function openImg(src){
-
-  document.getElementById("bigImg").src = src;
-
-  document.getElementById("lightbox").style.display = "flex";
-
-}
-
-function closeImg(){
-
-  document.getElementById("lightbox").style.display = "none";
-
+document.getElementById("bigImg").src=src;
+document.getElementById("lightbox").style.display="flex";
 }
 
 function checkout(){
-
-  alert("Checkout coming soon 🔥");
-
+alert("Checkout coming soon 🔥");
 }
-
 </script>
 
 </body>
