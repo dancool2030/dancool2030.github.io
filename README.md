@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -19,160 +19,129 @@
 body{
   background:#fff;
   overflow-x:hidden;
-  color:#111;
 }
 
-/* NAVBAR */
+/* NAV */
 
 nav{
   position:fixed;
   top:0;
-  left:0;
   width:100%;
-  height:75px;
-  padding:0 6%;
-  background:rgba(255,255,255,.96);
-  border-bottom:1px solid #eee;
+  height:70px;
+  background:white;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding:0 6%;
+  border-bottom:1px solid #eee;
   z-index:1000;
-  backdrop-filter:blur(10px);
 }
 
 .logo{
-  font-size:42px;
+  font-size:40px;
   color:#ff2d55;
 }
 
-.nav-right{
-  display:flex;
-  align-items:center;
-  gap:20px;
-}
-
-nav a{
-  text-decoration:none;
-  color:#111;
-  font-size:18px;
-}
-
-/* CART */
-
 .cart-icon{
   position:relative;
-  font-size:22px;
   cursor:pointer;
+  font-size:24px;
 }
 
 .cart-count{
   position:absolute;
-  top:-10px;
-  right:-12px;
-  width:20px;
-  height:20px;
-  border-radius:50%;
+  top:-8px;
+  right:-10px;
   background:red;
   color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width:18px;
+  height:18px;
   font-size:12px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 /* TOP BANNER */
 
 .top-banner{
-  position:sticky;
-  top:75px;
-  z-index:900;
-  background:white;
+  margin-top:70px;
   text-align:center;
-  padding:14px 10px;
-  font-size:38px;
+  font-size:32px;
   color:#ff2d55;
-  letter-spacing:3px;
-  animation:bounceGlow 2.5s infinite;
+  padding:18px 10px;
+  letter-spacing:2px;
+  animation:floatText 2s infinite ease-in-out;
 }
 
-@keyframes bounceGlow{
+@keyframes floatText{
+
   0%,100%{
     transform:translateY(0);
   }
+
   50%{
-    transform:translateY(-5px);
+    transform:translateY(-4px);
   }
+
 }
 
 /* HERO */
 
 .hero{
-  padding:140px 6% 60px;
+  padding-top:40px;
+  text-align:center;
 }
 
-.container{
-  max-width:1150px;
-  margin:auto;
+.main-img{
+  width:280px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* SIZE + COLOR */
+
+.controls{
+  margin-top:20px;
+}
+
+.btn-row{
   display:flex;
-  flex-wrap:wrap;
-  align-items:center;
   justify-content:center;
-  gap:50px;
+  gap:10px;
+  margin-top:10px;
+  flex-wrap:wrap;
 }
 
-.hero img{
-  width:350px;
-  border-radius:18px;
-  box-shadow:0 10px 25px rgba(0,0,0,.15);
-  cursor:pointer;
-}
-
-.hero-text{
-  max-width:450px;
-}
-
-.hero-text h1{
-  font-size:52px;
-  margin-bottom:10px;
-}
-
-.hero-text p{
-  font-size:28px;
-  margin-bottom:18px;
-}
-
-/* SIZE BUTTONS */
-
-.sizes{
-  display:flex;
-  gap:12px;
-  margin-bottom:18px;
-}
-
-.size-btn{
-  padding:10px 16px;
-  border-radius:10px;
+.size-btn,
+.color-btn{
+  padding:10px 14px;
   border:2px solid #111;
   background:white;
   cursor:pointer;
+  border-radius:10px;
   font-size:16px;
 }
 
-.size-btn.active{
+.active{
   background:#111;
   color:white;
 }
 
-/* MAIN BUTTONS */
+/* BUTTONS */
 
-.btn{
+.actions{
+  margin-top:15px;
+}
+
+.actions button{
+  padding:12px 16px;
+  margin:5px;
   border:none;
-  border-radius:12px;
-  padding:14px 18px;
-  font-size:18px;
+  border-radius:10px;
   cursor:pointer;
-  margin-right:10px;
-  margin-top:10px;
+  font-size:16px;
 }
 
 .buy{
@@ -180,148 +149,64 @@ nav a{
   color:white;
 }
 
-.cart{
+.add{
   background:#19c37d;
   color:white;
 }
 
-/* GALLERY */
+/* START SCREEN */
 
-.gallery{
-  padding:20px 6% 60px;
-}
-
-.gallery-title{
-  text-align:center;
-  font-size:42px;
-  margin-bottom:35px;
-}
-
-/* FIXED GAP ISSUE */
-
-.gallery-grid{
-  columns:4 220px;
-  column-gap:18px;
-}
-
-.card{
-  width:100%;
-  display:inline-block;
-  break-inside:avoid;
-  background:white;
-  margin-bottom:18px;
-  padding:8px;
-  border-radius:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,.12);
-}
-
-.card img{
-  width:100%;
-  border-radius:12px;
-  display:block;
-  cursor:pointer;
-}
-
-.card button{
-  width:100%;
-  margin-top:10px;
-  padding:12px;
-  border:none;
-  border-radius:10px;
-  background:#0BA3FF;
-  color:white;
-  cursor:pointer;
-  font-size:16px;
-}
-
-/* LIGHTBOX */
-
-.lightbox{
+.start-screen{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.9);
-  display:none;
-  align-items:center;
+  background:white;
+  display:flex;
   justify-content:center;
+  align-items:center;
+  flex-direction:column;
   z-index:2000;
 }
 
-.lightbox img{
-  max-width:90%;
-  max-height:90%;
+.start-screen img{
+  width:260px;
   border-radius:16px;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
 }
 
-/* CART PANEL */
-
-.cart-backdrop{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.45);
-  opacity:0;
-  pointer-events:none;
-  transition:.3s;
-  z-index:2500;
+.start-text{
+  margin-top:15px;
+  font-size:24px;
+  color:#ff2d55;
 }
 
-.cart-backdrop.active{
-  opacity:1;
-  pointer-events:auto;
-}
+/* CART */
 
 .cart-panel{
   position:fixed;
+  right:-350px;
   top:0;
-  right:-360px;
-  width:320px;
+  width:300px;
   height:100%;
   background:white;
-  padding:20px;
   transition:.3s;
+  box-shadow:-10px 0 30px rgba(0,0,0,0.2);
+  padding:20px;
   z-index:3000;
-  box-shadow:-10px 0 30px rgba(0,0,0,.2);
 }
 
 .cart-panel.active{
   right:0;
 }
 
-.close-cart{
-  position:absolute;
-  top:12px;
-  right:12px;
-  width:35px;
-  height:35px;
-  border:none;
-  border-radius:50%;
-  background:#ff2d55;
-  color:white;
-  cursor:pointer;
+.cart-panel h2{
+  margin-bottom:20px;
 }
 
-.item{
-  display:flex;
-  justify-content:space-between;
-  margin:12px 0;
+.cart-item{
+  margin-bottom:12px;
   padding-bottom:10px;
-  border-bottom:1px solid #eee;
-}
-
-.total{
-  margin-top:20px;
-  font-size:24px;
-}
-
-.checkout{
-  width:100%;
-  margin-top:18px;
-  padding:14px;
-  border:none;
-  border-radius:12px;
-  background:#ff2d55;
-  color:white;
-  cursor:pointer;
-  font-size:18px;
+  border-bottom:1px solid #ddd;
 }
 
 /* MOBILE */
@@ -329,23 +214,11 @@ nav a{
 @media(max-width:768px){
 
   .top-banner{
-    font-size:24px;
+    font-size:22px;
   }
 
-  .hero{
-    padding-top:130px;
-  }
-
-  .hero-text h1{
-    font-size:38px;
-  }
-
-  .hero img{
-    width:100%;
-  }
-
-  .gallery-grid{
-    columns:2 160px;
+  .main-img{
+    width:85%;
   }
 
 }
@@ -355,173 +228,175 @@ nav a{
 
 <body>
 
+<!-- START SCREEN -->
+
+<div class="start-screen" id="start">
+
+  <img 
+  src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
+  onclick="enterSite()"
+  >
+
+  <div class="start-text">
+    TAP TO ENTER
+  </div>
+
+</div>
+
 <!-- NAV -->
 
 <nav>
 
-<div class="logo">DWOCK</div>
+  <div class="logo">DWOCK</div>
 
-<div class="nav-right">
-<a href="#">Home</a>
-<a href="#">Shop</a>
-
-<div class="cart-icon" onclick="toggleCart()">
-🛒
-<div class="cart-count" id="count">0</div>
-</div>
-
-</div>
+  <div class="cart-icon" onclick="toggleCart()">
+    🛒
+    <div class="cart-count" id="count">0</div>
+  </div>
 
 </nav>
 
-<!-- BANNER -->
+<!-- TOP TEXT -->
 
 <div class="top-banner">
-YOUR STYLE STARTS NOW!!!
+  YOUR STYLE STARTS NOW
 </div>
 
 <!-- HERO -->
 
 <section class="hero">
 
-<div class="container">
+  <img 
+  id="mainImage"
+  class="main-img"
+  src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
+  >
 
-<img 
-src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
-onclick="openImg(this.src)"
->
+  <!-- SIZE -->
 
-<div class="hero-text">
+  <div class="controls">
 
-<h1>DWOCK STREETWEAR</h1>
+    <div class="btn-row">
 
-<p>$30</p>
+      <button class="size-btn active" onclick="setSize(this,'S')">
+        S
+      </button>
 
-<div class="sizes">
+      <button class="size-btn" onclick="setSize(this,'M')">
+        M
+      </button>
 
-<button class="size-btn" onclick="setSize(this,'S')">S</button>
+      <button class="size-btn" onclick="setSize(this,'L')">
+        L
+      </button>
 
-<button class="size-btn active" onclick="setSize(this,'M')">M</button>
+    </div>
 
-<button class="size-btn" onclick="setSize(this,'L')">L</button>
+    <!-- COLORS -->
 
-</div>
+    <div class="btn-row">
 
-<button class="btn buy" onclick="addToCart('Main Shirt',30)">
-BUY NOW
-</button>
+      <button class="color-btn active" onclick="changeColor(0,this)">
+        BLACK
+      </button>
 
-<button class="btn cart" onclick="addToCart('Main Shirt',30)">
-ADD TO CART
-</button>
+      <button class="color-btn" onclick="changeColor(1,this)">
+        WHITE
+      </button>
 
-</div>
+      <button class="color-btn" onclick="changeColor(2,this)">
+        RED
+      </button>
 
-</div>
+    </div>
 
-</section>
+  </div>
 
-<!-- GALLERY -->
+  <!-- ACTION BUTTONS -->
 
-<section class="gallery">
+  <div class="actions">
 
-<h2 class="gallery-title">LATEST DROPS</h2>
+    <button class="buy" onclick="addToCart()">
+      BUY NOW
+    </button>
 
-<div class="gallery-grid">
+    <button class="add" onclick="addToCart()">
+      ADD TO CART
+    </button>
 
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 1',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 2',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 3',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 4',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 5',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2449.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 6',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 7',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 8',25)">Add</button>
-</div>
-
-</div>
+  </div>
 
 </section>
-
-<!-- LIGHTBOX -->
-
-<div class="lightbox" id="lightbox" onclick="closeImg()">
-<img id="bigImg">
-</div>
 
 <!-- CART -->
 
-<div class="cart-backdrop" id="cartBackdrop" onclick="toggleCart()"></div>
+<div class="cart-panel" id="cart">
 
-<div class="cart-panel" id="cartPanel">
+  <h2>YOUR CART</h2>
 
-<button class="close-cart" onclick="toggleCart()">✖</button>
-
-<h2>Your Cart</h2>
-
-<div id="cartItems"></div>
-
-<div class="total" id="total">
-Total: $0
-</div>
-
-<button class="checkout" onclick="checkout()">
-Checkout
-</button>
+  <div id="cartItems"></div>
 
 </div>
 
 <script>
 
 let cart = [];
-let selectedSize = "M";
+let selectedSize = "S";
+
+/* PRODUCT IMAGES */
+
+const images = [
+
+"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png",
+
+"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png",
+
+"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png"
+
+];
+
+/* ENTER SITE */
+
+function enterSite(){
+
+  document.getElementById("start").style.display = "none";
+
+}
+
+/* SIZE */
 
 function setSize(btn,size){
 
   selectedSize = size;
 
-  document.querySelectorAll(".size-btn")
+  document
+  .querySelectorAll(".size-btn")
   .forEach(b => b.classList.remove("active"));
 
   btn.classList.add("active");
 
 }
 
-function addToCart(name,price){
+/* COLOR SWITCH */
+
+function changeColor(index,btn){
+
+  document.getElementById("mainImage").src = images[index];
+
+  document
+  .querySelectorAll(".color-btn")
+  .forEach(b => b.classList.remove("active"));
+
+  btn.classList.add("active");
+
+}
+
+/* ADD TO CART */
+
+function addToCart(){
 
   cart.push({
-    name,
-    price,
+    name:"DWOCK SHIRT",
     size:selectedSize
   });
 
@@ -529,62 +404,37 @@ function addToCart(name,price){
 
 }
 
+/* UPDATE CART */
+
 function updateCart(){
 
-  let box = document.getElementById("cartItems");
-  let count = document.getElementById("count");
-  let total = document.getElementById("total");
+  const cartItems = document.getElementById("cartItems");
 
-  box.innerHTML = "";
-
-  let sum = 0;
+  cartItems.innerHTML = "";
 
   cart.forEach(item => {
 
-    sum += item.price;
+    cartItems.innerHTML += `
 
-    box.innerHTML += `
-      <div class="item">
-        <span>${item.name} (${item.size})</span>
-        <span>$${item.price}</span>
+      <div class="cart-item">
+        ${item.name} - ${item.size}
       </div>
+
     `;
 
   });
 
-  count.innerText = cart.length;
-
-  total.innerText = "Total: $" + sum;
+  document.getElementById("count").innerText = cart.length;
 
 }
+
+/* OPEN CART */
 
 function toggleCart(){
 
-  document.getElementById("cartPanel")
+  document
+  .getElementById("cart")
   .classList.toggle("active");
-
-  document.getElementById("cartBackdrop")
-  .classList.toggle("active");
-
-}
-
-function openImg(src){
-
-  document.getElementById("bigImg").src = src;
-
-  document.getElementById("lightbox").style.display = "flex";
-
-}
-
-function closeImg(){
-
-  document.getElementById("lightbox").style.display = "none";
-
-}
-
-function checkout(){
-
-  alert("Checkout coming soon 🔥");
 
 }
 
