@@ -45,14 +45,14 @@ nav{
 .cart-icon{
   position:relative;
   cursor:pointer;
-  font-size:24px;
+  font-size:28px;
 }
 
 .cart-count{
   position:absolute;
   top:-8px;
   right:-10px;
-  background:red;
+  background:#ff2d55;
   color:white;
   width:18px;
   height:18px;
@@ -114,7 +114,7 @@ nav{
   width:300px;
   height:100%;
   background:white;
-  transition:0.3s;
+  transition:0.3s ease;
   box-shadow:-10px 0 30px rgba(0,0,0,0.2);
   padding:20px;
   z-index:3000;
@@ -135,7 +135,6 @@ nav{
   font-size:20px;
 }
 
-/* CLOSE BUTTON */
 .close-btn{
   position:absolute;
   top:10px;
@@ -149,25 +148,41 @@ nav{
   cursor:pointer;
 }
 
-.actions{
-  margin-top:15px;
+/* START */
+.start-screen{
+  position:fixed;
+  inset:0;
+  background:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:4000;
 }
 
-.actions button{
-  padding:12px 16px;
-  margin:5px;
-  border:none;
-  border-radius:10px;
+.start-screen img{
+  width:260px;
+  border-radius:16px;
   cursor:pointer;
 }
 
-.buy{ background:#ff2d55; color:white; }
-.add{ background:#19c37d; color:white; }
+.start-text{
+  margin-top:10px;
+  font-size:22px;
+  color:#ff2d55;
+}
 
 </style>
 </head>
 
 <body>
+
+<!-- START -->
+<div class="start-screen" id="start">
+  <img onclick="enterSite()"
+  src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png">
+  <div class="start-text">TAP TO ENTER</div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -181,24 +196,24 @@ nav{
 
 <!-- TOP -->
 <div class="top-banner">
-YOUR STYLE STARTS NOW
+  YOUR STYLE STARTS NOW
 </div>
 
 <!-- HERO -->
 <section class="hero">
 
-  <img id="mainImage" class="main-img">
+  <img id="mainImage" class="main-img"
+  src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png">
 
+  <!-- SIZE -->
   <div class="btn-row">
-
     <button class="size-btn active" onclick="setSize(this,'S')">S</button>
     <button class="size-btn" onclick="setSize(this,'M')">M</button>
     <button class="size-btn" onclick="setSize(this,'L')">L</button>
-
   </div>
 
+  <!-- IMAGES -->
   <div class="btn-row">
-
     <button class="color-btn active" onclick="changeImage(0,this)">1</button>
     <button class="color-btn" onclick="changeImage(1,this)">2</button>
     <button class="color-btn" onclick="changeImage(2,this)">3</button>
@@ -207,12 +222,7 @@ YOUR STYLE STARTS NOW
     <button class="color-btn" onclick="changeImage(5,this)">6</button>
     <button class="color-btn" onclick="changeImage(6,this)">7</button>
     <button class="color-btn" onclick="changeImage(7,this)">8</button>
-
-  </div>
-
-  <div class="actions">
-    <button class="buy" onclick="addToCart()">BUY NOW</button>
-    <button class="add" onclick="addToCart()">ADD TO CART</button>
+    <button class="color-btn" onclick="changeImage(8,this)">9</button>
   </div>
 
 </section>
@@ -223,70 +233,67 @@ YOUR STYLE STARTS NOW
   <button class="close-btn" onclick="toggleCart()">✖</button>
 
   <h2>YOUR CART</h2>
-
   <div id="cartItems"></div>
-
   <div class="total" id="total">Total: $0</div>
 
 </div>
 
 <script>
 
-/* ALL YOUR IMAGES (RESTORED) */
+let cart = [];
+let selectedSize = "S";
+
+/* 9 UNIQUE IMAGES */
 const images = [
 "https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png",
 "https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png",
 "https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png",
 "https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png",
-"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png",
-"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2449.png",
 "https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png",
-"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png"
+"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png",
+"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0591%20(1).jpeg",
+"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png",
+"https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png"
 ];
 
-document.getElementById("mainImage").src = images[0];
+function enterSite(){
+  document.getElementById("start").style.display="none";
+}
 
-let cart = [];
-let selectedSize = "S";
-
-/* SIZE */
 function setSize(btn,size){
-  selectedSize = size;
+  selectedSize=size;
   document.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("active"));
   btn.classList.add("active");
 }
 
-/* IMAGE SWITCH */
-function changeImage(index,btn){
-  document.getElementById("mainImage").src = images[index];
+function changeImage(i,btn){
+  document.getElementById("mainImage").src = images[i];
   document.querySelectorAll(".color-btn").forEach(b=>b.classList.remove("active"));
   btn.classList.add("active");
 }
 
-/* CART */
 function addToCart(){
-  cart.push({name:"DWOCK ITEM", size:selectedSize});
+  cart.push({name:"DWOCK ITEM",size:selectedSize});
   updateCart();
 }
 
 function updateCart(){
-  let box = document.getElementById("cartItems");
-  let total = document.getElementById("total");
-  let count = document.getElementById("count");
+  let box=document.getElementById("cartItems");
+  let count=document.getElementById("count");
+  let total=document.getElementById("total");
 
-  box.innerHTML = "";
-  let sum = 0;
+  box.innerHTML="";
+  let sum=0;
 
   cart.forEach(item=>{
-    sum += 30;
-    box.innerHTML += `<div class="cart-item">${item.name} (${item.size}) - $30</div>`;
+    sum+=30;
+    box.innerHTML+=`<div class="cart-item">${item.name} (${item.size}) - $30</div>`;
   });
 
-  total.innerText = "Total: $" + sum;
-  count.innerText = cart.length;
+  total.innerText="Total: $"+sum;
+  count.innerText=cart.length;
 }
 
-/* CART TOGGLE (FIXED) */
 function toggleCart(){
   document.getElementById("cart").classList.toggle("active");
 }
