@@ -69,6 +69,7 @@ nav{
   max-width:1100px;
 }
 
+/* MAIN IMAGE */
 .hero img{
   width:320px;
   border-radius:18px;
@@ -80,7 +81,7 @@ nav{
 h1{font-size:32px;}
 p{font-size:20px;}
 
-/* BUTTONS */
+/* IMAGE BUTTONS */
 .img-buttons{
   display:flex;
   flex-wrap:wrap;
@@ -99,6 +100,7 @@ p{font-size:20px;}
   font-size:12px;
 }
 
+/* BUTTONS */
 .btn{
   padding:12px 18px;
   border:none;
@@ -111,45 +113,21 @@ p{font-size:20px;}
 .buy{background:#ff2d55;color:white;}
 .cartBtn{background:#19c37d;color:white;}
 
-/* CART */
-.cart-panel{
+/* LIGHTBOX */
+.lightbox{
   position:fixed;
-  top:0;
-  right:-350px;
-  width:300px;
-  height:100%;
-  background:white;
-  box-shadow:-10px 0 30px rgba(0,0,0,.2);
-  padding:20px;
-  transition:.3s;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
   z-index:2000;
 }
 
-.cart-panel.active{
-  right:0;
-}
-
-.close-cart{
-  background:#ff2d55;
-  color:white;
-  border:none;
-  padding:8px 12px;
-  border-radius:10px;
-  cursor:pointer;
-  margin-bottom:10px;
-}
-
-.item{
-  display:flex;
-  justify-content:space-between;
-  margin:10px 0;
-  border-bottom:1px solid #eee;
-  padding-bottom:6px;
-}
-
-.total{
-  margin-top:15px;
-  font-size:18px;
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:12px;
 }
 
 </style>
@@ -160,16 +138,22 @@ p{font-size:20px;}
 <header>
 <nav>
 <div class="logo">DWOCK</div>
-<button class="close-cart" onclick="toggleCart()">🛒 Cart (<span id="count">0</span>)</button>
 </nav>
 <div class="banner">YOUR STYLE STARTS NOW!!!</div>
 </header>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeImg()">
+<img id="bigImg">
+</div>
+
 <section class="hero">
 <div class="container">
 
+<!-- MAIN IMAGE (CLICKABLE) -->
 <img id="mainImage"
-src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png">
+src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
+onclick="openImg(this.src)">
 
 <div>
 
@@ -186,12 +170,11 @@ src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa20
 
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png')">4</button>
 
-<!-- FIXED IMAGE -->
-<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png')">5</button>
+<!-- ❌ 5 REMOVED -->
 
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png')">6</button>
 
-<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2449.png')">7</button>
+<!-- ❌ 7 REMOVED -->
 
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png')">8</button>
 
@@ -201,67 +184,41 @@ src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa20
 
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0591%20(1).jpeg')">11</button>
 
-<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png')">12</button>
+<!-- NEW IMAGE ADDED (BUTTON 11 REPLACED SLOT) -->
+<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/fc86785c18195f59c1d7d29ceb4ae2c9e74d062e/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png')">12</button>
+
+<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png')">13</button>
 
 </div>
 
-<button class="btn buy" onclick="addToCart()">BUY NOW</button>
-<button class="btn cartBtn" onclick="addToCart()">ADD TO CART</button>
+<button class="btn buy">BUY NOW</button>
+<button class="btn cartBtn">ADD TO CART</button>
 
 </div>
 </div>
 </section>
 
-<!-- CART -->
-<div class="cart-panel" id="cart">
-<button class="close-cart" onclick="toggleCart()">Close</button>
-
-<h3>Cart</h3>
-<div id="cartItems"></div>
-<div class="total" id="total">Total: $0</div>
-</div>
-
 <script>
 
-let cart=[];
-
+/* CHANGE IMAGE */
 function changeImg(btn,src){
 document.getElementById("mainImage").src=src;
-document.querySelectorAll(".img-btn").forEach(b=>b.style.opacity=".5");
+
+document.querySelectorAll(".img-btn").forEach(b=>{
+b.style.opacity=".5";
+});
+
 btn.style.opacity="1";
 }
 
-/* FIXED CART */
-function addToCart(){
-cart.push({name:"DWOCK ITEM",price:30});
-updateCart();
-toggleCart();
+/* CLICK MAIN IMAGE = ZOOM */
+function openImg(src){
+document.getElementById("bigImg").src=src;
+document.getElementById("lightbox").style.display="flex";
 }
 
-function updateCart(){
-let box=document.getElementById("cartItems");
-let count=document.getElementById("count");
-let total=document.getElementById("total");
-
-box.innerHTML="";
-let sum=0;
-
-cart.forEach(i=>{
-sum+=i.price;
-box.innerHTML+=`
-<div class="item">
-<span>${i.name}</span>
-<span>$${i.price}</span>
-</div>`;
-});
-
-count.innerText=cart.length;
-total.innerText="Total: $"+sum;
-}
-
-/* CART OPEN/CLOSE */
-function toggleCart(){
-document.getElementById("cart").classList.toggle("active");
+function closeImg(){
+document.getElementById("lightbox").style.display="none";
 }
 
 </script>
