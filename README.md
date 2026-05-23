@@ -89,7 +89,7 @@ nav{
   padding:160px 6% 40px;
 }
 
-/* ✅ FIXED LEFT / RIGHT LAYOUT */
+/* LAYOUT */
 .container{
   max-width:1100px;
   margin:auto;
@@ -158,9 +158,24 @@ h1{
   padding:8px 12px;
   border:none;
   border-radius:8px;
-  background:#111;
+  background:#ff2d55;
   color:white;
   cursor:pointer;
+  font-size:14px;
+  opacity:0.7;
+  transition:0.2s;
+}
+
+.size-btn.active{
+  opacity:1;
+}
+
+/* PRICE BIGGER */
+.price{
+  font-size:34px;
+  margin-top:5px;
+  margin-bottom:10px;
+  color:#111;
 }
 
 /* BUTTONS */
@@ -254,14 +269,6 @@ h1{
   color:white;
 }
 
-/* BANNER */
-.banner{
-  text-align:center;
-  font-size:20px;
-  color:#ff2d55;
-  padding-bottom:8px;
-}
-
 </style>
 </head>
 
@@ -278,7 +285,6 @@ h1{
 </div>
 
 </nav>
-
 <div class="banner">YOUR STYLE STARTS NOW!!!</div>
 </header>
 
@@ -287,7 +293,6 @@ h1{
 </div>
 
 <div class="cart-panel" id="cartPanel">
-
 <button class="close-cart" onclick="toggleCart()">✖</button>
 
 <h2>Your Cart</h2>
@@ -296,54 +301,41 @@ h1{
 <div class="total" id="total">Total: $0</div>
 
 <button class="checkout" onclick="checkout()">Checkout</button>
-
 </div>
 
 <section class="hero">
 <div class="container">
 
-<!-- IMAGE LEFT -->
 <img id="mainImage"
 src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
 onclick="openImg(this.src)">
 
-<!-- TEXT RIGHT -->
 <div>
 
 <h1 class="title">ĐWOCK Joggers</h1>
-<p>$30</p>
+
+<div class="price">$30</div>
 
 <div class="img-buttons">
 
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png')">1</button>
-
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png')">2</button>
-
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png')">3</button>
-
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png')">4</button>
-
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png')">6</button>
-
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png')">8</button>
-
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png')">9</button>
-
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png')">10</button>
-
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0591%20(1).jpeg')">11</button>
-
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/fc86785c18195f59c1d7d29ceb4ae2c9e74d062e/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png')">12</button>
-
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png')">13</button>
 
 </div>
 
-<!-- SIZE BUTTONS -->
 <div class="size-buttons">
-<button class="size-btn">S</button>
-<button class="size-btn">M</button>
-<button class="size-btn">L</button>
+<button class="size-btn" onclick="setSize(this)">S</button>
+<button class="size-btn" onclick="setSize(this)">M</button>
+<button class="size-btn" onclick="setSize(this)">L</button>
 </div>
 
 <button class="btn buy" onclick="addToCart('ĐWOCK Joggers',30)">BUY NOW</button>
@@ -405,6 +397,11 @@ document.getElementById("cartPanel").classList.toggle("active");
 
 function checkout(){
 alert("Checkout coming soon 🔥");
+}
+
+function setSize(btn){
+document.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
 }
 
 </script>
