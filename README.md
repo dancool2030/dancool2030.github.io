@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -226,13 +226,12 @@ p{font-size:20px;}
 <img id="bigImg">
 </div>
 
-<!-- CART PANEL (FIXED) -->
+<!-- CART -->
 <div class="cartPanel" id="cartPanel">
 
 <button class="closeBtn" onclick="toggleCart()">Close</button>
 
 <h2>Your Cart</h2>
-
 <div id="cartItems"></div>
 
 <div class="total" id="total">Total: $0</div>
@@ -245,7 +244,7 @@ p{font-size:20px;}
 <div class="container">
 
 <img id="mainImage"
-src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
+src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/main/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
 onclick="openImg(this.src)">
 
 <div>
@@ -255,9 +254,27 @@ onclick="openImg(this.src)">
 
 <div class="img-buttons">
 
-<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png')">1</button>
-<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png')">2</button>
-<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png')">3</button>
+<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/main/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png')">1</button>
+
+<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/main/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png')">2</button>
+
+<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/main/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png')">3</button>
+
+<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/main/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png')">4</button>
+
+<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/main/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png')">6</button>
+
+<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/main/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png')">8</button>
+
+<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/main/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png')">9</button>
+
+<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/main/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png')">10</button>
+
+<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/main/9353299672d1759321ae4322918b01472604d428/IMG_0591%20(1).jpeg')">11</button>
+
+<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/main/fc86785c18195f59c1d7d29ceb4ae2c9e74d062e/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png')">12</button>
+
+<button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/main/9353299672d1759321ae4322918b01472604d428/IMG_0594.png')">13</button>
 
 </div>
 
@@ -288,16 +305,11 @@ let sum = 0;
 
 cart.forEach(item=>{
 sum += item.price;
-box.innerHTML += `
-<div class="item">
-<span>${item.name}</span>
-<span>$${item.price}</span>
-</div>`;
+box.innerHTML += `<div class="item"><span>${item.name}</span><span>$${item.price}</span></div>`;
 });
 
 count.innerText = cart.length;
 total.innerText = "Total: $" + sum;
-
 }
 
 function toggleCart(){
@@ -311,10 +323,6 @@ document.getElementById("lightbox").style.display = "flex";
 
 function closeImg(){
 document.getElementById("lightbox").style.display = "none";
-}
-
-function checkout(){
-alert("Checkout coming soon 🔥");
 }
 
 </script>
