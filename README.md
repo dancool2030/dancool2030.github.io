@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ĐOCK STORE</title>
+<title>ĐWOCK STORE</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
 
@@ -41,20 +41,9 @@ nav{
   padding:12px 6%;
 }
 
+/* LOGO */
 .logo{
   font-size:34px;
-  background:linear-gradient(
-    90deg,
-    #00ff88,
-    #00aaff,
-    #ff2d55,
-    #ff66cc
-  );
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.title{
   background:linear-gradient(
     90deg,
     #00ff88,
@@ -73,8 +62,7 @@ nav{
   padding-bottom:8px;
 }
 
-/* CART ICON */
-
+/* CART */
 .cart-icon{
   position:relative;
   cursor:pointer;
@@ -99,34 +87,46 @@ nav{
 /* HERO */
 .hero{
   padding:160px 6% 40px;
-  display:flex;
-  justify-content:center;
 }
 
+/* ✅ FIXED LEFT / RIGHT LAYOUT */
 .container{
-  display:flex;
-  flex-wrap:wrap;
-  gap:40px;
-  align-items:center;
-  justify-content:center;
   max-width:1100px;
+  margin:auto;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-between;
+  gap:60px;
 }
 
-/* MAIN IMAGE */
-.hero img{
+.container img{
   width:320px;
   border-radius:18px;
   cursor:pointer;
   box-shadow:0 10px 25px rgba(0,0,0,.15);
+  flex-shrink:0;
 }
 
-/* TEXT */
+.container > div{
+  max-width:500px;
+}
+
+/* TITLE */
 h1{
   font-size:32px;
 }
 
-p{
-  font-size:20px;
+.title{
+  background:linear-gradient(
+    90deg,
+    #00ff88,
+    #00aaff,
+    #ff2d55,
+    #ff66cc
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 /* IMAGE BUTTONS */
@@ -135,7 +135,6 @@ p{
   flex-wrap:wrap;
   gap:8px;
   margin-top:12px;
-  max-width:420px;
 }
 
 .img-btn{
@@ -146,6 +145,22 @@ p{
   color:white;
   cursor:pointer;
   font-size:12px;
+}
+
+/* SIZE BUTTONS */
+.size-buttons{
+  display:flex;
+  gap:10px;
+  margin-top:10px;
+}
+
+.size-btn{
+  padding:8px 12px;
+  border:none;
+  border-radius:8px;
+  background:#111;
+  color:white;
+  cursor:pointer;
 }
 
 /* BUTTONS */
@@ -185,8 +200,7 @@ p{
   border-radius:12px;
 }
 
-/* CART PANEL */
-
+/* CART */
 .cart-panel{
   position:fixed;
   top:0;
@@ -215,7 +229,6 @@ p{
   border-radius:50%;
   background:#ff2d55;
   color:white;
-  cursor:pointer;
 }
 
 .item{
@@ -239,8 +252,14 @@ p{
   border-radius:12px;
   background:#ff2d55;
   color:white;
-  cursor:pointer;
-  font-size:18px;
+}
+
+/* BANNER */
+.banner{
+  text-align:center;
+  font-size:20px;
+  color:#ff2d55;
+  padding-bottom:8px;
 }
 
 </style>
@@ -249,12 +268,10 @@ p{
 <body>
 
 <header>
-
 <nav>
 
-<div class="logo">ĐOCK</div>
+<div class="logo">ĐWOCK</div>
 
-<!-- CART ICON -->
 <div class="cart-icon" onclick="toggleCart()">
 🛒
 <div class="cart-count" id="count">0</div>
@@ -263,47 +280,37 @@ p{
 </nav>
 
 <div class="banner">YOUR STYLE STARTS NOW!!!</div>
-
 </header>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeImg()">
 <img id="bigImg">
 </div>
 
-<!-- CART PANEL -->
-
 <div class="cart-panel" id="cartPanel">
 
-<button class="close-cart" onclick="toggleCart()">
-✖
-</button>
+<button class="close-cart" onclick="toggleCart()">✖</button>
 
 <h2>Your Cart</h2>
-
 <div id="cartItems"></div>
 
-<div class="total" id="total">
-Total: $0
-</div>
+<div class="total" id="total">Total: $0</div>
 
-<button class="checkout" onclick="checkout()">
-Checkout
-</button>
+<button class="checkout" onclick="checkout()">Checkout</button>
 
 </div>
 
 <section class="hero">
 <div class="container">
 
-<!-- MAIN IMAGE -->
+<!-- IMAGE LEFT -->
 <img id="mainImage"
 src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
 onclick="openImg(this.src)">
 
+<!-- TEXT RIGHT -->
 <div>
 
-<h1 class="title">ĐOCK Joggers</h1>
+<h1 class="title">ĐWOCK Joggers</h1>
 <p>$30</p>
 
 <div class="img-buttons">
@@ -332,13 +339,15 @@ onclick="openImg(this.src)">
 
 </div>
 
-<button class="btn buy" onclick="addToCart('ĐOCK Joggers',30)">
-BUY NOW
-</button>
+<!-- SIZE BUTTONS -->
+<div class="size-buttons">
+<button class="size-btn">S</button>
+<button class="size-btn">M</button>
+<button class="size-btn">L</button>
+</div>
 
-<button class="btn cartBtn" onclick="addToCart('ĐOCK Joggers',30)">
-ADD TO CART
-</button>
+<button class="btn buy" onclick="addToCart('ĐWOCK Joggers',30)">BUY NOW</button>
+<button class="btn cartBtn" onclick="addToCart('ĐWOCK Joggers',30)">ADD TO CART</button>
 
 </div>
 </div>
@@ -346,95 +355,56 @@ ADD TO CART
 
 <script>
 
-/* IMAGE SWITCHER */
-
 function changeImg(btn,src){
-
 document.getElementById("mainImage").src=src;
-
-document.querySelectorAll(".img-btn").forEach(b=>{
-b.style.opacity=".5";
-});
-
+document.querySelectorAll(".img-btn").forEach(b=>b.style.opacity=".5");
 btn.style.opacity="1";
-
 }
 
-/* LIGHTBOX */
-
 function openImg(src){
-
 document.getElementById("bigImg").src=src;
 document.getElementById("lightbox").style.display="flex";
-
 }
 
 function closeImg(){
-
 document.getElementById("lightbox").style.display="none";
-
 }
 
-/* CART */
-
-let cart = [];
-
-/* ADD TO CART */
+let cart=[];
 
 function addToCart(name,price){
-
 cart.push({name,price});
-
 updateCart();
-
 }
-
-/* UPDATE CART */
 
 function updateCart(){
 
-let box = document.getElementById("cartItems");
-let count = document.getElementById("count");
-let total = document.getElementById("total");
+let box=document.getElementById("cartItems");
+let count=document.getElementById("count");
+let total=document.getElementById("total");
 
-box.innerHTML = "";
+box.innerHTML="";
+let sum=0;
 
-let sum = 0;
-
-cart.forEach((item,index)=>{
-
-sum += item.price;
-
-box.innerHTML += `
+cart.forEach(item=>{
+sum+=item.price;
+box.innerHTML+=`
 <div class="item">
 <span>${item.name}</span>
 <span>$${item.price}</span>
-</div>
-`;
-
+</div>`;
 });
 
-count.innerText = cart.length;
-
-total.innerText = "Total: $" + sum;
-
+count.innerText=cart.length;
+total.innerText="Total: $"+sum;
 }
-
-/* TOGGLE CART */
 
 function toggleCart(){
-
-document.getElementById("cartPanel")
-.classList.toggle("active");
-
+document.getElementById("cartPanel").classList.toggle("active");
 }
 
-/* CHECKOUT */
-
 function checkout(){
-
 alert("Checkout coming soon 🔥");
-
 }
 
 </script>
