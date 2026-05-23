@@ -19,8 +19,6 @@
 body{
   background:white;
   overflow-x:hidden;
-  transform:scale(0.95);
-  transform-origin:top;
 }
 
 /* HEADER */
@@ -44,13 +42,7 @@ nav{
 /* LOGO */
 .logo{
   font-size:34px;
-  background:linear-gradient(
-    90deg,
-    #00ff88,
-    #00aaff,
-    #ff2d55,
-    #ff66cc
-  );
+  background:linear-gradient(90deg,#00ff88,#00aaff,#ff2d55,#ff66cc);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
@@ -102,12 +94,14 @@ nav{
 
 .container img{
   width:320px;
+  max-width:100%;
+  height:auto;
   border-radius:18px;
   cursor:pointer;
   box-shadow:0 10px 25px rgba(0,0,0,.15);
-  flex-shrink:0;
 }
 
+/* TEXT */
 .container > div{
   max-width:500px;
 }
@@ -118,15 +112,17 @@ h1{
 }
 
 .title{
-  background:linear-gradient(
-    90deg,
-    #00ff88,
-    #00aaff,
-    #ff2d55,
-    #ff66cc
-  );
+  background:linear-gradient(90deg,#00ff88,#00aaff,#ff2d55,#ff66cc);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
+}
+
+/* PRICE */
+.price{
+  font-size:34px;
+  margin-top:5px;
+  margin-bottom:10px;
+  color:#111;
 }
 
 /* IMAGE BUTTONS */
@@ -163,19 +159,10 @@ h1{
   cursor:pointer;
   font-size:14px;
   opacity:0.7;
-  transition:0.2s;
 }
 
 .size-btn.active{
   opacity:1;
-}
-
-/* PRICE BIGGER */
-.price{
-  font-size:34px;
-  margin-top:5px;
-  margin-bottom:10px;
-  color:#111;
 }
 
 /* BUTTONS */
@@ -269,6 +256,32 @@ h1{
   color:white;
 }
 
+/* MOBILE FIX */
+@media (max-width:768px){
+
+  .container{
+    flex-direction:column;
+    text-align:center;
+    gap:25px;
+  }
+
+  .container img{
+    width:90%;
+  }
+
+  nav{
+    padding:10px 5%;
+  }
+
+  .logo{
+    font-size:24px;
+  }
+
+  .banner{
+    font-size:14px;
+  }
+}
+
 </style>
 </head>
 
@@ -288,10 +301,12 @@ h1{
 <div class="banner">YOUR STYLE STARTS NOW!!!</div>
 </header>
 
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeImg()">
 <img id="bigImg">
 </div>
 
+<!-- CART -->
 <div class="cart-panel" id="cartPanel">
 <button class="close-cart" onclick="toggleCart()">✖</button>
 
@@ -306,6 +321,7 @@ h1{
 <section class="hero">
 <div class="container">
 
+<!-- MAIN IMAGE -->
 <img id="mainImage"
 src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
 onclick="openImg(this.src)">
@@ -316,28 +332,41 @@ onclick="openImg(this.src)">
 
 <div class="price">$30</div>
 
+<!-- IMAGE SWITCH BUTTONS (ALL RESTORED) -->
 <div class="img-buttons">
 
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png')">1</button>
+
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png')">2</button>
+
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png')">3</button>
+
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png')">4</button>
+
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png')">6</button>
+
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png')">8</button>
+
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png')">9</button>
+
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png')">10</button>
+
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0591%20(1).jpeg')">11</button>
+
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/fc86785c18195f59c1d7d29ceb4ae2c9e74d062e/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png')">12</button>
+
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png')">13</button>
 
 </div>
 
+<!-- SIZE -->
 <div class="size-buttons">
 <button class="size-btn" onclick="setSize(this)">S</button>
 <button class="size-btn" onclick="setSize(this)">M</button>
 <button class="size-btn" onclick="setSize(this)">L</button>
 </div>
 
+<!-- CART BUTTONS -->
 <button class="btn buy" onclick="addToCart('ĐWOCK Joggers',30)">BUY NOW</button>
 <button class="btn cartBtn" onclick="addToCart('ĐWOCK Joggers',30)">ADD TO CART</button>
 
@@ -346,6 +375,8 @@ onclick="openImg(this.src)">
 </section>
 
 <script>
+
+let cart=[];
 
 function changeImg(btn,src){
 document.getElementById("mainImage").src=src;
@@ -361,8 +392,6 @@ document.getElementById("lightbox").style.display="flex";
 function closeImg(){
 document.getElementById("lightbox").style.display="none";
 }
-
-let cart=[];
 
 function addToCart(name,price){
 cart.push({name,price});
