@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -23,7 +23,7 @@ body{
   transform-origin:top;
 }
 
-/* NAV + BANNER SAME LINE */
+/* HEADER */
 header{
   position:fixed;
   top:0;
@@ -46,7 +46,6 @@ nav{
   color:#ff2d55;
 }
 
-/* banner INSIDE NAV so it stays aligned */
 .banner{
   text-align:center;
   font-size:20px;
@@ -70,7 +69,6 @@ nav{
   max-width:1100px;
 }
 
-/* MAIN IMAGE */
 .hero img{
   width:320px;
   border-radius:18px;
@@ -79,15 +77,10 @@ nav{
 }
 
 /* TEXT */
-h1{
-  font-size:32px;
-}
+h1{font-size:32px;}
+p{font-size:20px;}
 
-p{
-  font-size:20px;
-}
-
-/* IMAGE BUTTONS */
+/* BUTTONS */
 .img-buttons{
   display:flex;
   flex-wrap:wrap;
@@ -106,7 +99,6 @@ p{
   font-size:12px;
 }
 
-/* ALL BUTTONS */
 .btn{
   padding:12px 18px;
   border:none;
@@ -117,7 +109,7 @@ p{
 }
 
 .buy{background:#ff2d55;color:white;}
-.cart{background:#19c37d;color:white;}
+.cartBtn{background:#19c37d;color:white;}
 
 /* CART */
 .cart-panel{
@@ -155,35 +147,35 @@ p{
   padding-bottom:6px;
 }
 
+.total{
+  margin-top:15px;
+  font-size:18px;
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
 <nav>
 <div class="logo">DWOCK</div>
-<button class="close-cart" onclick="toggleCart()">🛒 Cart</button>
+<button class="close-cart" onclick="toggleCart()">🛒 Cart (<span id="count">0</span>)</button>
 </nav>
-
 <div class="banner">YOUR STYLE STARTS NOW!!!</div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
 <div class="container">
 
 <img id="mainImage"
-src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
-onclick="openImg(this.src)">
+src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png">
 
 <div>
 
 <h1>DWOCK STREETWEAR</h1>
 <p>$30</p>
 
-<!-- ALL IMAGE BUTTONS -->
 <div class="img-buttons">
 
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png')">1</button>
@@ -194,7 +186,7 @@ onclick="openImg(this.src)">
 
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png')">4</button>
 
-<!-- FIXED IMAGE 5 -->
+<!-- FIXED IMAGE -->
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png')">5</button>
 
 <button class="img-btn" onclick="changeImg(this,'https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png')">6</button>
@@ -213,8 +205,8 @@ onclick="openImg(this.src)">
 
 </div>
 
-<button class="btn buy">BUY NOW</button>
-<button class="btn cart" onclick="toggleCart()">ADD TO CART</button>
+<button class="btn buy" onclick="addToCart()">BUY NOW</button>
+<button class="btn cartBtn" onclick="addToCart()">ADD TO CART</button>
 
 </div>
 </div>
@@ -222,9 +214,11 @@ onclick="openImg(this.src)">
 
 <!-- CART -->
 <div class="cart-panel" id="cart">
-<button class="close-cart" onclick="toggleCart()">Close ✖</button>
-<h3>Your Cart</h3>
+<button class="close-cart" onclick="toggleCart()">Close</button>
+
+<h3>Cart</h3>
 <div id="cartItems"></div>
+<div class="total" id="total">Total: $0</div>
 </div>
 
 <script>
@@ -233,33 +227,41 @@ let cart=[];
 
 function changeImg(btn,src){
 document.getElementById("mainImage").src=src;
-document.querySelectorAll(".img-btn").forEach(b=>b.style.opacity=".6");
+document.querySelectorAll(".img-btn").forEach(b=>b.style.opacity=".5");
 btn.style.opacity="1";
 }
 
-function toggleCart(){
-document.getElementById("cart").classList.toggle("active");
-}
-
-function addToCart(name,price){
-cart.push({name,price});
+/* FIXED CART */
+function addToCart(){
+cart.push({name:"DWOCK ITEM",price:30});
 updateCart();
+toggleCart();
 }
 
 function updateCart(){
 let box=document.getElementById("cartItems");
+let count=document.getElementById("count");
+let total=document.getElementById("total");
+
 box.innerHTML="";
+let sum=0;
+
 cart.forEach(i=>{
+sum+=i.price;
 box.innerHTML+=`
 <div class="item">
 <span>${i.name}</span>
 <span>$${i.price}</span>
 </div>`;
 });
+
+count.innerText=cart.length;
+total.innerText="Total: $"+sum;
 }
 
-function openImg(src){
-window.open(src,"_blank");
+/* CART OPEN/CLOSE */
+function toggleCart(){
+document.getElementById("cart").classList.toggle("active");
 }
 
 </script>
