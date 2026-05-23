@@ -22,14 +22,14 @@ body{
   color:#111;
 }
 
-/* NAV */
+/* NAVBAR */
 
 nav{
   position:fixed;
   top:0;
   left:0;
   width:100%;
-  padding:15px 6%;
+  padding:16px 6%;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -45,7 +45,7 @@ nav{
   letter-spacing:2px;
 }
 
-.nav-links{
+.nav-right{
   display:flex;
   align-items:center;
   gap:18px;
@@ -84,21 +84,22 @@ nav a{
 
 .top-banner{
   position:fixed;
-  top:72px;
+  top:92px; /* LOWERED */
   left:50%;
   transform:translateX(-50%);
   z-index:999;
+  font-size:30px;
   color:#ff2d55;
-  font-size:38px;
-  letter-spacing:3px;
+  letter-spacing:2px;
   text-align:center;
   animation:bounce 2.5s infinite;
   transition:.3s;
+  pointer-events:none;
 }
 
 .top-banner.small{
-  font-size:22px;
-  top:60px;
+  top:82px;
+  font-size:20px;
 }
 
 @keyframes bounce{
@@ -113,7 +114,7 @@ nav a{
 /* HERO */
 
 .hero{
-  padding:150px 6% 60px;
+  padding:180px 6% 70px;
 }
 
 .container{
@@ -121,8 +122,8 @@ nav a{
   margin:auto;
   display:flex;
   flex-wrap:wrap;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   gap:50px;
 }
 
@@ -137,26 +138,34 @@ nav a{
   cursor:pointer;
 }
 
-.color-buttons{
+/* IMAGE BUTTONS */
+
+.image-buttons{
   display:flex;
-  gap:12px;
+  flex-wrap:wrap;
+  gap:10px;
   margin-top:18px;
   justify-content:center;
 }
 
-.color-btn{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  border:3px solid white;
+.image-btn{
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:12px;
+  background:#111;
+  color:white;
   cursor:pointer;
-  box-shadow:0 5px 10px rgba(0,0,0,.2);
+  font-size:14px;
   transition:.3s;
 }
 
-.color-btn:hover{
-  transform:scale(1.12);
+.image-btn:hover{
+  background:#ff2d55;
+  transform:scale(1.08);
 }
+
+/* HERO TEXT */
 
 .hero-text{
   max-width:480px;
@@ -176,7 +185,7 @@ nav a{
 .price{
   font-size:42px;
   color:#ff2d55;
-  margin-bottom:20px;
+  margin-bottom:25px;
 }
 
 /* BUTTONS */
@@ -210,56 +219,12 @@ nav a{
   color:white;
 }
 
-/* GALLERY */
-
-.gallery{
-  padding:40px 6% 80px;
-}
-
-.gallery-title{
-  text-align:center;
-  font-size:46px;
-  margin-bottom:35px;
-}
-
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:18px;
-}
-
-.card{
-  background:white;
-  padding:8px;
-  border-radius:16px;
-  box-shadow:0 10px 22px rgba(0,0,0,.12);
-}
-
-.card img{
-  width:100%;
-  border-radius:12px;
-  display:block;
-  cursor:pointer;
-}
-
-.card button{
-  width:100%;
-  margin-top:10px;
-  padding:10px;
-  border:none;
-  border-radius:10px;
-  background:#0BA3FF;
-  color:white;
-  cursor:pointer;
-  font-size:15px;
-}
-
 /* LIGHTBOX */
 
 .lightbox{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.9);
+  background:rgba(0,0,0,.92);
   display:none;
   align-items:center;
   justify-content:center;
@@ -335,23 +300,20 @@ nav a{
 @media(max-width:768px){
 
   .top-banner{
-    font-size:24px;
+    font-size:20px;
+    top:88px;
   }
 
   .hero{
-    padding-top:140px;
-  }
-
-  .hero-text h1{
-    font-size:40px;
+    padding-top:170px;
   }
 
   .hero-image{
     width:100%;
   }
 
-  .gallery-grid{
-    grid-template-columns:repeat(2,1fr);
+  .hero-text h1{
+    font-size:40px;
   }
 
 }
@@ -367,7 +329,8 @@ nav a{
 
 <div class="logo">DWOCK</div>
 
-<div class="nav-links">
+<div class="nav-right">
+
 <a href="#">Home</a>
 <a href="#">Shop</a>
 
@@ -380,7 +343,7 @@ nav a{
 
 </nav>
 
-<!-- TOP TEXT -->
+<!-- TOP BANNER -->
 
 <div class="top-banner" id="banner">
 YOUR STYLE STARTS NOW!!!
@@ -398,29 +361,35 @@ YOUR STYLE STARTS NOW!!!
 src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png"
 onclick="openImg(this.src)">
 
-<!-- COLOR BUTTONS -->
+<!-- IMAGE SWITCH BUTTONS -->
 
-<div class="color-buttons">
+<div class="image-buttons">
 
-<div class="color-btn"
-style="background:#ff2d55"
-onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png')">
-</div>
+<button class="image-btn" onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bb8fa202f78fe6d39039532d410679af1013b1d7/IMG_2449.png')">1</button>
 
-<div class="color-btn"
-style="background:#0BA3FF"
-onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png')">
-</div>
+<button class="image-btn" onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png')">2</button>
 
-<div class="color-btn"
-style="background:#19c37d"
-onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png')">
-</div>
+<button class="image-btn" onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png')">3</button>
 
-<div class="color-btn"
-style="background:#111"
-onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bdfbdedca938b7f7384594259496d482430debf3/Screenshot%202026-05-21%20185824.png')">
-</div>
+<button class="image-btn" onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png')">4</button>
+
+<button class="image-btn" onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png')">5</button>
+
+<button class="image-btn" onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png')">6</button>
+
+<button class="image-btn" onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png')">7</button>
+
+<button class="image-btn" onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png')">8</button>
+
+<button class="image-btn" onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png')">9</button>
+
+<button class="image-btn" onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0591%20(1).jpeg')">10</button>
+
+<button class="image-btn" onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png')">11</button>
+
+<button class="image-btn" onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png')">12</button>
+
+<button class="image-btn" onclick="changeMainImage('https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bdfbdedca938b7f7384594259496d482430debf3/Screenshot%202026-05-21%20185824.png')">13</button>
 
 </div>
 
@@ -450,85 +419,6 @@ ADD TO CART
 
 </div>
 
-</div>
-
-</div>
-
-</section>
-
-<!-- GALLERY -->
-
-<section class="gallery">
-
-<h2 class="gallery-title">LATEST DROPS</h2>
-
-<div class="gallery-grid">
-
-<!-- ALL IMAGES KEPT -->
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2008_11_12%20AM.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 1',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/ChatGPT%20Image%20May%2013%2C%202026%2C%2007_25_46%20PM.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 2',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/33d8dc77-8b36-45ab-a6cd-9124637d6da4.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 3',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/182ea8c6-dc6e-4fb3-aeb1-209ef47e9f9a.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 4',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2455.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 5',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2449.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 6',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_2447.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 7',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0598.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 8',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/c283e41d7265ec6b28026ef18c334227bdf8614a/IMG_0597.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 9',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0591%20(1).jpeg" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 10',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/9353299672d1759321ae4322918b01472604d428/IMG_0594.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 11',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/da666a1a15eea37f1e562a0cded39443d2a29802/22c3e4d4-1a52-479a-9fcb-2de86f1bf029.png" onclick="openImg(this.src)">
-<button onclick="addToCart('Drop 12',25)">Add</button>
-</div>
-
-<div class="card">
-<img src="https://raw.githubusercontent.com/dancool2030/dancool2030.github.io/bdfbdedca938b7f7384594259496d482430debf3/Screenshot%202026-05-21%20185824.png" onclick="openImg(this.src)">
-<button onclick="addToCart('New Drop',25)">Add</button>
 </div>
 
 </div>
@@ -572,7 +462,7 @@ Checkout
 
 let cart = [];
 
-/* CHANGE MAIN IMAGE */
+/* CHANGE IMAGE */
 
 function changeMainImage(src){
 
@@ -621,7 +511,7 @@ total.innerText = "Total: $" + sum;
 
 }
 
-/* CART OPEN */
+/* CART */
 
 function toggleCart(){
 
@@ -654,7 +544,7 @@ alert("Checkout coming soon 🔥");
 
 }
 
-/* SCROLL EFFECT */
+/* BANNER SCROLL */
 
 window.addEventListener("scroll",()=>{
 
