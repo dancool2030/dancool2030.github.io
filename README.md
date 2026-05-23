@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DWOCK STORE</title>
+<title>ĐOCK STORE</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
 
@@ -43,7 +43,27 @@ nav{
 
 .logo{
   font-size:34px;
-  color:#ff2d55;
+  background:linear-gradient(
+    90deg,
+    #00ff88,
+    #00aaff,
+    #ff2d55,
+    #ff66cc
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.title{
+  background:linear-gradient(
+    90deg,
+    #00ff88,
+    #00aaff,
+    #ff2d55,
+    #ff66cc
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 .banner{
@@ -101,8 +121,13 @@ nav{
 }
 
 /* TEXT */
-h1{font-size:32px;}
-p{font-size:20px;}
+h1{
+  font-size:32px;
+}
+
+p{
+  font-size:20px;
+}
 
 /* IMAGE BUTTONS */
 .img-buttons{
@@ -227,7 +252,7 @@ p{font-size:20px;}
 
 <nav>
 
-<div class="logo">DWOCK</div>
+<div class="logo">ĐOCK</div>
 
 <!-- CART ICON -->
 <div class="cart-icon" onclick="toggleCart()">
@@ -278,7 +303,7 @@ onclick="openImg(this.src)">
 
 <div>
 
-<h1>DWOCK STREETWEAR</h1>
+<h1 class="title">ĐOCK Joggers</h1>
 <p>$30</p>
 
 <div class="img-buttons">
@@ -307,11 +332,11 @@ onclick="openImg(this.src)">
 
 </div>
 
-<button class="btn buy" onclick="addToCart('DWOCK Shirt',30)">
+<button class="btn buy" onclick="addToCart('ĐOCK Joggers',30)">
 BUY NOW
 </button>
 
-<button class="btn cartBtn" onclick="addToCart('DWOCK Shirt',30)">
+<button class="btn cartBtn" onclick="addToCart('ĐOCK Joggers',30)">
 ADD TO CART
 </button>
 
